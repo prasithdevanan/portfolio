@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio website</title>
+    <link rel="stylesheet" href="styles.css">
+
+
+    <!-- <<<< -----------------Icon--------------------------------->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <!-- <<<< -----------------Slick--------------------------------->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
+
+    <!-- <<<< -----------------COS Animation--------------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!---------------------------Email Send------------------------------------------------>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "DmVAXSi_UrhU2qQWy",
+            });
+        })();
+    </script>
+    <script src="./Javascript/email.js"></script>
+
+</head>
+
+
+<body>
+
+    <!-- <<<< -----------------NavBar Section--------------------------------->
+
+    <navbar class="navbarHeader" id="navbar">
+        <div class="avaliable-status">
+            <div>
+                <div></div>
+            </div>
+            <h2>Avaliable</h2>
+            <h4>Full time/Freelance</h4>
+
+        </div>
+        <div class="menuIcon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="19" viewBox="0 0 36 29" fill="none">
+                <rect width="35.9988" height="4" rx="2" fill="white" />
+                <rect x="13.0898" y="12.5" width="22.9083" height="4" rx="2" fill="white" />
+                <rect x="4.91016" y="25" width="31.0899" height="4" rx="2" fill="white" />
+            </svg>
+        </div>
+        <div class="headerMenu">
+            <ul class="navHover">
+                <a href="#heroContent">
+                    <li>Home</li>
+                </a>
+                <a href="#about">
+                    <li>About Me</li>
+                </a>
+
+                <a href="#services">
+                    <li>Services</li>
+                </a>
+                <a href="#latestWork">
+                    <li>Portfolio</li>
+                </a>
+                <a href="#get-in-touch">
+                    <li>Contact</li>
+                </a>
+
+            </ul>
+
+            <a href="#get-in-touch">
+                <button class="connect">Connect With Me</button>
+            </a>
+        </div>
+
+    </navbar>
+
+
+    <div id="nav-mobile-backdrop">
+        <navMobile id="nav-mobile">
+
+            <div class="headerMenu-mobile">
+                <ul class="navHover">
+                    <a href="#heroContent" onclick="Myfunction()">
+                        <li>Home</li>
+                    </a>
+                    <a href="#about" onclick="Myfunction()">
+                        <li>About Me</li>
+                    </a>
+
+                    <a href="#services" onclick="Myfunction()">
+                        <li>Services</li>
+                    </a>
+                    <a href="#latestWork" onclick="Myfunction()">
+                        <li>Portfolio</li>
+                    </a>
+
+                    <li>Contact</li>
+                </ul>
+
+                <a href="#get-in-touch">
+                    <button class="connect" onclick="Myfunction()">Connect With Me</button>
+                </a>
+
+
+            </div>
+        </navMobile>
+    </div>
+
+
+
+    <!-- <<<< -----------------Main Hero Section--------------------------------->
+
+    <mainHead>
+        <div class="heroContent gradiant-background" id="heroContent">
+
+            <!-- <<<< -----------------hero background logo--------------------------------->
+            <div id="logo-container">
+                <img src="Img/figmaLogo.png" alt="image" class="back-logo blur">
+                <img src="Img/Photoshop.png" alt="image" class="back-logo blur">
+                <img src="Img/Adobe XD.png" alt="img" class="back-logo blur">
+                <img src="Img/blender.png" alt="img" class="back-logo blur">
+                <img src="Img/Css.png" alt="img" class="back-logo blur">
+                <img src="Img/Html.png" alt="img" class="back-logo blur">
+                <img src="Img/JavaScript.png" alt="img" class="back-logo blur">
+                <img src="Img/miro.png" alt="img" class="back-logo blur">
+                <img src="Img/illustrator.png" alt="img" class="back-logo blur">
+            </div>
+
+            <!-- ----------center content------------->
+            <div class="heroContent hero-center-content">
+                <img src="Img/profile.jpg" alt="img" class="hero-profile">
+                <h4>
+                    I'm Prasith Devanan,<br>
+                    <span></span>
+                    <!-- Based in India. -->
+                </h4>
+                <div class="mainBtn">
+                    <a href="#get-in-touch">
+                        <button class="connect">Connect with me</button>
+                    </a>
+                    <a href="Img/Resume.pdf" target="_blank">
+                        <button class="resume">My Resume</button>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-details" id="fixedElement">
+                <img src="./Img/profile.jpg" alt="img">
+                <div>
+                    <h3>Prasith Devanan</h3>
+                    <h5>UI/UX Designer</h5>
+                </div>
+
+            </div>
+
+        </div>
+    </mainHead>
+
+    <!-- <<<< -----------------About Section--------------------------------->
+
+
+    <about id="about">
+        <div class="about-Main-section">
+            <div class="about-heading">
+                <h4>About Me</h4>
+            </div>
+            <div class="about-section" data-aos="fade-right" data-aos-duration="500" data-aos-delay="100">
+                <div class="about-img-p">
+                    <div class="about-img">
+                        <img src="Img/profile.jpg" alt="image">
+                    </div>
+                    <div class="about-para">
+                        <p>
+                            I’m Prasith Devanan, a UI/UX and Graphic Designer with over 2 years of experience creating
+                            web, mobile, and AR/VR designs. I enjoy turning ideas into easy-to-use digital products
+                            using tools like Figma and Adobe XD. My work focuses on making interfaces simple, visually
+                            appealing, and consistent through strong design systems. With a background in branding and
+                            visual design, I bring a complete approach — from concept to final product.
+                        </p>
+                        <div class="about-skills">
+                            <div class="about-skill">
+                                <p>Figma</p>
+                                <hr style="width: 80%; max-width: 500px;">
+                                <h4>90</h4>
+                            </div>
+                            <div class="about-skill">
+                                <p>Adobe XD</p>
+                                <hr style="width:70%; max-width: 480px;">
+                                <h4>80</h4>
+                            </div>
+                            <div class="about-skill">
+                                <p>Photoshop</p>
+                                <hr style="width:80%">
+                            </div>
+                            <div class="about-skill">
+                                <p>Illustrator</p>
+                                <hr style="width:30%">
+                            </div>
+                            <div class="about-skill">
+                                <p>Html&Css</p>
+                                <hr style="width:50%">
+                            </div>
+                            <div class="about-skill">
+                                <p>AI Tools</p>
+                                <hr style="width:50%">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="about-count">
+                    <div>
+                        <h1>03+</h1>
+                        <p>Years Of Experience</p>
+                    </div>
+                    <hr>
+                    <div>
+                        <h1>10+</h1>
+                        <p>Project Completed</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </about>
+
+    <!-- <<<< -----------------Services Section--------------------------------->
+
+
+    <myservices id="services">
+        <div class="services-main">
+            <div class="about-heading">
+                <h4>My Services</h4>
+            </div>
+            <div class="services-row1">
+                <div class="services-types" data-aos="zoom-in" data-aos-duration="500">
+                    <h1>01</h1>
+                    <h1 class="text">UI/UX Design</h1>
+                    <p>I create user-centered designs that combine creativity with functionality. From wireframes to 
+                        interactive prototypes, I ensure smooth navigation and engaging experiences that delight users 
+                        while meeting business goals.</p>
+
+                    <!-- <h4>Read more</h4> -->
+                    
+                </div>
+                <div class="services-types" data-aos="zoom-in" data-aos-duration="700">
+                    <h1>02</h1>
+                    <h1 class="text">Web Design</h1>
+                    <p>I design modern, responsive, and visually appealing websites that reflect your brand’s personality. Every design 
+                        is optimized for performance, accessibility, and user engagement across all devices.</p>
+
+                    <!-- <h4>Read more</h4> -->
+                </div>
+                <div class="services-types" data-aos="zoom-in" data-aos-duration="700">
+                    <h1>03</h1>
+                    <h1 class="text">Graphic Design</h1>
+                    <p>From marketing materials to digital creatives, I craft designs that capture attention and communicate your message effectively. My focus is on strong visuals, consistency, and storytelling through design.</p>
+
+                    <!-- <h4>Read more</h4> -->
+                </div>
+                <div class="services-types" data-aos="zoom-in" data-aos-duration="700">
+                    <h1>04</h1>
+                    <h1 class="text">Logo Design</h1>
+                    <p>A logo is the face of your brand. I design memorable, versatile, and timeless logos that leave a lasting impression and align with your brand identity.</p>
+
+                    <!-- <h4>Read more</h4> -->
+                </div>
+                <div class="services-types" data-aos="zoom-in" data-aos-duration="700">
+                    <h1>05</h1>
+                    <h1 class="text">Social Media Design</h1>
+                    <p>I design engaging social media content that boosts visibility and interaction. From templates to campaign visuals, my designs are tailored for each platform to drive maximum impact.</p>
+
+                    <!-- <h4>Read more</h4> -->
+                </div>
+                <div class="services-types" data-aos="zoom-in" data-aos-duration="700">
+                    <h1>06</h1>
+                    <h1 class="text">Front-End Development</h1>
+                    <p>I build responsive, fast, and interactive websites using modern front-end technologies. My focus is on clean code, smooth animations, and seamless user experiences across all devices.</p>
+
+                    <!-- <h4>Read more</h4> -->
+                </div>
+            </div>
+
+            <!-- <<<< -----------------Mobile carosal Section--------------------------------->
+            <div class="services-mobile" id="services-mobile">
+                <div class="services-types">
+                    <h1>01</h1>
+                    <h1 class="text">UI/UX Design</h1>
+                    <p>I create user-centered designs that combine creativity with functionality. From wireframes to 
+                        interactive prototypes, I ensure smooth navigation and engaging experiences that delight users 
+                        while meeting business goals.</p>
+
+                    <!-- <h4>Read more</h4> -->
+                </div>
+                <div class="services-types">
+                    <h1>02</h1>
+                    <h1 class="text">Web Design</h1>
+                    <p>I design modern, responsive, and visually appealing websites that reflect your brand’s personality. Every design is optimized for performance, accessibility, and user engagement across all devices.</p>
+
+                    <!-- <h4>Read more</h4> -->
+                </div>
+                <div class="services-types">
+                    <h1>03</h1>
+                    <h1 class="text">Graphic Design</h1>
+                    <p>From marketing materials to digital creatives, I craft designs that capture attention and communicate your message effectively. My focus is on strong visuals, consistency, and storytelling through design.</p>
+
+                    <!-- <h4>Read more</h4> -->
+                </div>
+                <div class="services-types">
+                    <h1>04</h1>
+                    <h1 class="text">Logo Design</h1>
+                    <p>A logo is the face of your brand. I design memorable, versatile, and timeless logos that leave a lasting impression and align with your brand identity.</p>
+
+                    <!-- <h4>Read more</h4> -->
+                </div>
+                <div class="services-types">
+                    <h1>05</h1>
+                    <h1 class="text">Social Media Design</h1>
+                    <p>I design engaging social media content that boosts visibility and interaction. From templates to campaign visuals, my designs are tailored for each platform to drive maximum impact.</p>
+
+                    <!-- <h4>Read more</h4> -->
+                </div>
+                <div class="services-types">
+                    <h1>06</h1>
+                    <h1 class="text">Front-End Development</h1>
+                    <p>I build responsive, fast, and interactive websites using modern front-end technologies. My focus is on clean code, smooth animations, and seamless user experiences across all devices.</p>
+
+                    <!-- <h4>Read more</h4> -->
+                </div>
+            </div>
+
+
+            <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+                integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+            <script type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+
+
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        </div>
+
+
+
+
+    </myservices>
+
+    <!-- --------------------------------My Latest work----------------------------- -->
+
+    <work>
+        <div class="work-main" id="latestWork">
+            <div class="about-heading">
+                <h4>My latest work</h4>
+            </div>
+            <!-- <div class="work-section">
+                <div class="work-file">
+                    <a href="https://www.behance.net/gallery/232316651/Porsche_website" target="_blank">
+                        <img src="Img/CarWebsite.png" alt="image">
+                    </a>
+
+                </div>
+                <div class="work-file">
+                    <img src="Img/workImage.png" alt="image">
+                </div>
+                <div class="work-file">
+                    <img src="Img/workImage.png" alt="image">
+                </div>
+                <div class="work-file">
+                    <img src="Img/workImage.png" alt="image">
+                </div>
+                <div class="work-file">
+                    <img src="Img/workImage.png" alt="image">
+                </div>
+                <div class="work-file">
+                    <img src="Img/workImage.png" alt="image">
+                </div>
+
+
+
+            </div>
+            <div class="work-section work-showmore1" id="work-showmore">
+                <div class="work-file">
+                    <img src="Img/workImage.png" alt="image">
+                </div>
+
+                <div class="work-file">
+                    <img src="Img/workImage.png" alt="image">
+                </div>
+
+                <div class="work-file">
+                    <img src="Img/workImage.png" alt="image">
+                </div>
+
+
+            </div>
+            <div class="work-showmore">
+                <button class="resume" id="show-More-btn">Show More
+                    <i class="bi bi-arrow-90deg-down"></i>
+                </button>
+            </div> -->
+
+        </div>
+        <!-- ________________________________________folder Open____________________________ -->
+        <div class="work-folder">
+            <div class="top-folder" data-aos="zoom-out" data-aos-duration="500">
+                <div class="main-div folder">
+                    <div class="main-folder"></div>
+
+                    <div class="image">
+                        <a href="https://www.behance.net/gallery/190634923/Dashboard-Portfolio" target="_blank">
+                            <img src="Img/Dashboard.png" alt="image" class="inside-image">
+                        </a>
+
+
+                        <a href="https://www.behance.net/gallery/232316651/Porsche_website" target="_blank">
+                            <img src="Img/thumbnail1.png" alt="image" class="inside-image1">
+                        </a>
+
+                        <a href="https://www.behance.net/gallery/190591613/Second-Hand-Mobile-Website-Portfolio"
+                            target="_blank">
+                            <img src="Img/MobileWay.png" alt="image" class="inside-image2">
+                        </a>
+
+                    </div>
+
+                    <div class="front-rect"></div>
+                </div>
+                <h2>Website Design</h2>
+            </div>
+
+            <div class="top-folder" data-aos="zoom-out" data-aos-duration="500">
+                <div class="main-div folder">
+                    <div class="main-folder"></div>
+
+                    <div class="image">
+                        <a href="https://youtube.com" target="_blank">
+                            <img src="Img/thumbnail.png" alt="image" class="inside-image">
+                        </a>
+                        <img src="Img/thumbnail1.png" alt="image" class="inside-image1">
+                        <img src="Img/thumbnail.png" alt="image" class="inside-image2">
+                    </div>
+
+                    <div class="front-rect"></div>
+                </div>
+                <h2>Mobile Application</h2>
+            </div>
+
+        </div>
+
+        <script src="Javascript/folderOpen.js"></script>
+
+
+    </work>
+
+
+    <!-- --------------------------------Get in touch----------------------------- -->
+
+    <section id="get-in-touch">
+        <div class="touch-main">
+            <div class="touch-heading about-heading">
+                <h4>Get in touch</h4>
+            </div>
+
+            <div class="touch-talk-form">
+
+                <div class="touch-talk">
+                    <h1 class="text">Let's Talk</h1>
+                    <p>
+                        I’m always excited to connect and explore new opportunities. Whether you need design support or just want to chat, feel free to reach out — every great project starts with a conversation!
+                    </p>
+
+                    <div class="touch-info">
+                        <i class="bi bi-envelope-at-fill"></i>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=prasith4545@gmail.com&su=I am Interest for you work&body=Name%20is%20you?"
+                            target="_blank">prasith4545@gmail.com</a>
+                        <!-- <a href="#" target="_blank" class="navbar">prasith4545@gmail.com</a> -->
+                    </div>
+
+                    <div class="touch-info">
+                        <i class="bi bi-telephone-outbound-fill"></i>
+                        <h4>+91 9698550XXX</h4>
+                    </div>
+
+                    <div class="touch-info">
+                        <i class="bi bi-geo-fill"></i>
+                        <h4>India</h4>
+                    </div>
+                </div>
+                <div class="touch-form">
+                    <form id="form-fill">
+                        <label>Name
+                            <span class="touch-mandatory">*</span>
+                        </label>
+
+                        <input type="text" placeholder="Enter your name" id="name" required>
+
+                        <label>Email id
+                            <span class="touch-mandatory">*</span>
+                        </label>
+
+                        <input type="email" placeholder="Enter Email ID" required id="email-input">
+
+                        <label> Mobile</label>
+                        <input type="number" placeholder="+91 983456XXXX" maxlength="15" id="number-input"
+                            name="mobile">
+
+                        <label>Message</label>
+
+                        <textarea type="text" placeholder="About the work" id="autoExpand"></textarea>
+
+                        <div class="submitBtn">
+
+                            <button type="submit" class="connect" id="form-submit">Submit now</button>
+                            <div class="sucess-popup" id="sucess-popup">
+                                <h2>
+                                    <i class="bi bi-check2-circle"></i>
+                                    Sucessfully Send
+                                </h2>
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- --------------------------------Bottom----------------------------- -->
+
+
+    <footer class="footer-main">
+        <div class="footer-text">
+            <h1 id="footer-message">Thanks for the Scroll</h1>
+        </div>
+
+        <hr>
+
+        <div class="footer-info">
+            <h5>© 2025 All rights reserved</h5>
+            <div class="footer-img">
+                <a href="https://www.behance.net/prasithprasith1" target="_blank">
+                    <img src="Img/Behance.svg" alt="svg">
+                </a>
+
+                <a href="https://www.linkedin.com/in/prasith-devanan-36213a262/" target="_blank">
+                    <img src="Img/Linkedin.svg" alt="svg">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+<div class="cursor-circle"></div>
+</body>
+<script src="Javascript/javascript.js"></script>
+
+</html>
