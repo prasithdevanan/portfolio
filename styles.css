@@ -1304,4 +1304,10 @@ section {
     transform: translate(-50%, -50%);
     transition: transform 0.1s ease-out, width 0.2s ease, height 0.2s ease;
     z-index: 9999;
+
+}
+@media (hover: none) and (pointer: coarse) {
+  .cursor-circle {
+    display: none;
+  }
 }
