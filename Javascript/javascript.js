@@ -1,32 +1,3 @@
-/* 
-document.getElementById("show-More-btn").addEventListener("click", function () {
-    const showMoreSection = document.getElementById("work-showmore");
-    const button = document.getElementById("show-More-btn");
-
-    if (showMoreSection.style.display === "grid") {
-        showMoreSection.style.display = "none";
-        button.innerHTML = `Show more <i class="bi bi-arrow-90deg-down"></i>`;
-        showMoreSection.style.transitionBehavior = "display .4s linear";
-    } else {
-        showMoreSection.style.display = "grid";
-        button.innerHTML = `Show Less <i class="bi bi-arrow-90deg-up"></i>`;
-        showMoreSection.style.transitionBehavior = "display .4s linear";
-    }
-}) */
-
-
-document.getElementById("form-submit").addEventListener("click", function (event) {
-    event.preventDefault()
-
-    var form = document.getElementById("form-fill");
-    var formInputs = document.getElementById("form-input");
-    if (form.checkValidity()) {
-        emailSend();
-        form.reset();
-    } else {
-        form.reportValidity();
-    }
-})
 
 //------------------------------------------Re-Load Screen scroll into Top-------------------//
 
@@ -133,67 +104,6 @@ $('.services-mobile').slick({
 });
 
 // ------------------------photoshopLogo Animation----------------------//
-
-// window.addEventListener("load", () => {
-//     const container = document.getElementById("logo-container");
-//     const logos = Array.from(container.querySelectorAll(".back-logo"));
-
-
-//     const directions = [];
-//     const rotations = [];
-//     const rotationSpeeds = [];
-//     const positions = [];
-
-//     //logo selectes//
-
-//     logos.forEach((logo, i) => {
-//         const logoWidth = logo.offsetWidth;
-//         const logoHeight = logo.offsetHeight;
-//         const innerWidth = container.clientWidth;
-//         const innerHeight = container.clientHeight;
-
-
-//         positions[i] = {
-//             x: Math.random() * (innerWidth - logoWidth),
-//             y: Math.random() * (innerHeight - logoHeight)
-//         }
-
-//         directions[i] = {
-//             x: (Math.random() - 0.5) * 2,
-//             y: (Math.random() - 0.5) * 2
-//         }
-
-//         rotations[i] = Math.random() * 360;
-//         rotationSpeeds[i] = (Math.random() - 0.5) * 1;
-//     });
-
-//     function animation() {
-//         const innerWidth = container.clientWidth;
-//         const innerHeight = container.clientHeight;
-
-//         logos.forEach((logo, i) => {
-//             const logoWidth = logo.offsetWidth;
-//             const logoHeight = logo.offsetHeight;
-
-//             positions[i].x += directions[i].x;
-//             positions[i].y += directions[i].y;
-
-//             if (positions[i].x < 0) { positions[i].x = 0; directions[i].x *= -1; }
-//             if (positions[i].y < 0) { positions[i].y = 0; directions[i].y *= -1; }
-//             if (positions[i].x > innerWidth - logoWidth) { positions[i].x = innerWidth - logoWidth; directions[i].x *= -1; }
-//             if (positions[i].y > innerHeight - logoHeight) { positions[i].y = innerHeight - logoHeight; directions[i].y *= -1; }
-
-//             rotations[i] += rotationSpeeds[i];
-
-//             logo.style.transform = `translate3d(${positions[i].x}px, ${positions[i].y}px, 0) rotate(${rotations[i]}deg)`;
-//         });
-
-//         animationsId = requestAnimationFrame(animation);
-//     }
-
-//     animation()
-
-// })
 
 
 window.addEventListener("load", () => {
@@ -355,17 +265,10 @@ window.addEventListener("scroll", () => {
 
 
 // ---------------------------cursor change--------------//
-/* const cursor = document.querySelector(".cursor-circle");
-
-document.addEventListener('mousemove', (event) => {
-    cursor.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
-    console.log(event.clientX, event.clientY);
-}); */
-
 
 const cursor = document.querySelector(".cursor-circle");
 
 document.addEventListener('mousemove', (event) => {
     cursor.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
-    // console.log(event.clientX, event.clientY);   
 });
+

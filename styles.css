@@ -1222,7 +1222,7 @@ section {
     position: fixed;
     right: 20px;
     bottom: 20px;
-    z-index: 100;
+    z-index: 1;
     backdrop-filter: blur(20px);
 }
 
@@ -1258,7 +1258,7 @@ section {
     }
 }
 
-.submitBtn {
+.submitButton {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1306,8 +1306,63 @@ section {
     z-index: 9999;
 }
 
-@media (hover: none) and (pointer: coarse) {
-  .cursor-circle {
-    display: none;
-  }
+@media screen and (max-width:800px) {
+    .cursor-circle {
+        display: none;
+    }
+}
+
+
+
+.captchaBox {
+    border-radius: 5px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.error  {
+    border: 2px solid rgba(255, 0, 0, 0.573) !important;
+    /* display: rgba(255, 0, 0, 0.51); */
+}
+
+.captchaBox h4 {
+    color: transparent;
+}
+
+.submitBtn {
+    margin-top: 10px;
+    background-color: rgba(130, 82, 138, 100);
+    border-radius: 5px;
+    color: #fff;
+}
+
+#canvas {
+    border: 1px solid rgb(55, 55, 121);
+    border-radius: 5px;
+    color: white;
+    width:200px;
+    height: 60px;
+}
+
+.inputBox {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.captch-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.captch-field button {
+    height: fit-content;
+    padding: 10px 10px 6px 8px;
+    background-color: rgba(128, 128, 128, 0.337);
+    border: none;
+    border-radius: 4px;
 }
