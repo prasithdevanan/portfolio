@@ -679,9 +679,10 @@ ul {
 
 
 
-.slick-list .draggable {
-    display: flex;
+.slick-list {
+    width: 100% !important;
 }
+
 
 /* .slick-track {
     transform: translate3d(-832px, 0px, 0px) !important;
