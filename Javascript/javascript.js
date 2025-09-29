@@ -96,7 +96,12 @@ $('.services-mobile').slick({
                 arrows: false,
                 centerMode: true,
                 centerPadding: '18px',
-                slidesToShow: 1
+                slidesToShow: 1,
+                autoplay: true,              // Enable autoplay
+                autoplaySpeed: 3000,         // 3 seconds between slides
+                speed: 600,                  // Optional: transition speed
+                pauseOnHover: false,         // Optional: keep autoplaying on hover
+                pauseOnFocus: false          // Optional: keep autoplaying on focus
             }
 
         }

@@ -75,8 +75,8 @@ window.addEventListener("DOMContentLoaded", () => {
         }
 
         if (inputBox.value.trim() === text) {
-            // emailSend();
-            alert("sucessfully send")
+            emailSend();
+            // alert("sucessfully send")
             form.reset();
             triggerFunction();
         } else {
