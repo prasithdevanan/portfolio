@@ -9,13 +9,27 @@ window.addEventListener("DOMContentLoaded", () => {
     const captchaBox = document.querySelector(".captchaBox");
 
     console.log(captchaBox.children[2])
-    
+
     const Error = () => {
         captchaBox.children[1].classList.add("error");
         captchaBox.children[2].style.color = "red";
+        captchaBox.children[2].textContent = "Invaild Captcha";
     }
 
+    const ErrorMgs = () => {
+        captchaBox.children[1].classList.add("error");
+        captchaBox.children[2].style.color = "red";
+        captchaBox.children[2].textContent = "Enter Captcha";
+    }
+
+    inputBox.addEventListener("input", () => {
+        captchaBox.children[1].classList.remove("error");
+        captchaBox.children[2].style.color = "transparent";
+    })
+
     // Error();
+
+
 
 
     // random number helper
@@ -73,10 +87,14 @@ window.addEventListener("DOMContentLoaded", () => {
             form.reportValidity();
             return;
         }
+        if (inputBox.value == "") {
+            ErrorMgs();
+            return;
+        }
 
         if (inputBox.value.trim() === text) {
-            emailSend();
-            // alert("sucessfully send")
+            // emailSend();
+            alert("sucessfully send")
             form.reset();
             triggerFunction();
         } else {
