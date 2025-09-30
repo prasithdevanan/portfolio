@@ -100,7 +100,7 @@ window.addEventListener("DOMContentLoaded", () => {
         } else {
             // alert("❌ Invalid captcha. Please try again.");
             Error();
-            triggerFunction();
+            // triggerFunction();
         }
     });
 });

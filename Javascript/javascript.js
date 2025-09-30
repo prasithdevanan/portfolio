@@ -2,9 +2,13 @@
 //------------------------------------------Re-Load Screen scroll into Top-------------------//
 
 
-/* window.addEventListener("load", ()=> {
-    window.scrollTo({top:0, behavior:"smooth"});
-}) */
+// window.addEventListener("beforeunload", ()=> {
+//     window.scrollTo(0,0);
+// })
+
+window.addEventListener("load", () => {
+    window.scrollTo({top:0, behavior:"smooth"})
+})
 
 
 
