@@ -2,13 +2,10 @@
 //------------------------------------------Re-Load Screen scroll into Top-------------------//
 
 
-// window.addEventListener("beforeunload", ()=> {
-//     window.scrollTo(0,0);
-// })
 
-window.addEventListener("load", () => {
-    window.scrollTo({top:0, behavior:"smooth"})
-})
+// window.addEventListener("load", () => {
+//     window.scrollTo(0,0)
+// })
 
 
 
@@ -112,6 +109,8 @@ $('.services-mobile').slick({
     ]
 });
 
+AOS.init();
+
 // ------------------------photoshopLogo Animation----------------------//
 
 
@@ -211,10 +210,15 @@ window.addEventListener("load", () => {
         requestAnimationFrame(animate);
     }
 
+    function reloadscreen() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
     animate();
+    reloadscreen();
 });
 
-AOS.init();
+
 
 
 
@@ -258,19 +262,19 @@ const fixed = document.getElementById("fixedElement");
 
 
 // ---------------------------------------top Symbol-------------------------------------------//
-window.addEventListener("scroll", () => {
-    const scrollTop = window.scrollY;
-    const windowHeight = window.innerHeight;
-    const docHeight = document.documentElement.scrollHeight;
+// window.addEventListener("scroll", () => {
+//     const scrollTop = window.scrollY;
+//     const windowHeight = window.innerHeight;
+//     const docHeight = document.documentElement.scrollHeight;
 
-    if (scrollTop + windowHeight >= 1200) {
-        fixed.style.display = "none";
-    }
-    else {
-        fixed.style.display = "flex";
-    }
+//     if (scrollTop + windowHeight >= 1200) {
+//         fixed.style.display = "none";
+//     }
+//     else {
+//         fixed.style.display = "flex";
+//     }
 
-})
+// })
 
 
 // ---------------------------cursor change--------------//

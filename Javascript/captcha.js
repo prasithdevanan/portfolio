@@ -8,7 +8,7 @@ window.addEventListener("DOMContentLoaded", () => {
     let text = "";
     const captchaBox = document.querySelector(".captchaBox");
 
-    console.log(captchaBox.children[2])
+
 
     const Error = () => {
         captchaBox.children[1].classList.add("error");
