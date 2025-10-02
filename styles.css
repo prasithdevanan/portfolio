@@ -743,7 +743,7 @@ ul {
 
 /*<<<< -----------------Services Section------------------------------->>> */
 .services-main {
-    margin: 67px 10% 0px 10%;
+    margin: 67px 0px 0px 0px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -1529,4 +1529,5 @@ section {
     background-color: rgba(128, 128, 128, 0.337);
     border: none;
     border-radius: 4px;
+
 }
