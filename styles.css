@@ -523,7 +523,7 @@ ul {
     flex-direction: column;
     gap: 10px;
 }
-
+.footer-img
 .about-skill {
     display: flex;
     gap: 20px;
@@ -1364,7 +1364,7 @@ section {
 .footer-img {
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 12px;
     align-items: center;
 }
 
