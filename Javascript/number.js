@@ -31,7 +31,6 @@ function animateWhenVisible(element, start, end, duration) {
                 setTimeout(() => {
                     animateValue(element, start, end, duration);
                 }, 600);
-             console.log(currentScrollY)
             }
         })
     }, {

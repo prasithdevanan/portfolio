@@ -1551,3 +1551,13 @@ section {
 
 }
 
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.show {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5 ease;
+}
