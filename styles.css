@@ -308,7 +308,7 @@ ul {
     flex-direction: column;
     gap: 20px;
     padding: 20px 30px;
-    height: 100vh;
+    height: fit-content;
     overflow: hidden;
 }
 
@@ -1560,4 +1560,5 @@ section {
     opacity: 1;
     visibility: visible;
     transition: opacity 0.5 ease;
+
 }
