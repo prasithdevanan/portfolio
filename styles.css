@@ -523,8 +523,8 @@ ul {
     flex-direction: column;
     gap: 10px;
 }
-.footer-img
-.about-skill {
+
+.footer-img .about-skill {
     display: flex;
     gap: 20px;
     align-items: center;
@@ -547,10 +547,11 @@ ul {
 
 
 .about-img img {
-    width: 200px;
+    width: 250px;
     border-radius: 10px;
-    border: 2px solid rgba(255, 255, 255, 0.403);
+    border: 2px solid #ffffff20;
     object-fit: cover;
+    background-color: #ffffff20;
 }
 
 .about-img {
@@ -1348,7 +1349,7 @@ section {
 .footer-info {
     display: flex;
     justify-content: space-between;
-    padding: 10px 36px;
+    padding: 10px 10px 10px 24px;
     align-items: center;
 }
 
@@ -1358,7 +1359,16 @@ section {
 
 .footer-img img {
     width: 24px;
+    padding: 6px;
 }
+
+.footer-info div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: calc(10% - 10px);
+}
+
 
 
 .footer-img {
@@ -1386,6 +1396,10 @@ section {
     .footer-info {
         padding: 10px 20px;
     }
+
+    .footer-info div {
+        margin-right: calc(15% - 10px);
+    }
 }
 
 
@@ -1399,7 +1413,6 @@ section {
     align-items: center;
     border: 2px solid rgba(255, 255, 255, 0.578);
     width: fit-content;
-    padding: 10px;
     border-radius: 54px;
     background: rgba(255, 255, 255, 0.134);
     position: fixed;
@@ -1407,12 +1420,19 @@ section {
     bottom: 20px;
     z-index: 1;
     backdrop-filter: blur(20px);
+    transition: transform .2s linear, box-shadow .2s linear, border .2s linear;
+}
+
+.footer-details:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px #0A66C2;
+    border: 2px solid #ffffffc0;
+    transform: scale(1.05);
 }
 
 .footer-details img {
     width: 60px;
     border-radius: 60px;
-    margin-right: 10px;
 }
 
 .footer-details h3 {
@@ -1436,9 +1456,6 @@ section {
         width: 32px;
     }
 
-    .footer-details {
-        padding: 4px 10px 4px 4px;
-    }
 }
 
 .submitButton {

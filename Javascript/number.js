@@ -1,3 +1,5 @@
+
+
 // Function to animate a number
 
 let lastScrollY = window.scrollY;
@@ -40,9 +42,20 @@ function animateWhenVisible(element, start, end, duration) {
     observer.observe(element);
 }
 
+// <!-----------------------------------------Experiences animation--------------------------------------------
+
+//years calculate
+const years = () => {
+    const currentYear = new Date().getFullYear();
+    const startYear = 2023;
+    const yearsExperience = currentYear - startYear;
+    return yearsExperience;
+}
+const count = years();
+
 // Usage
 const counter = document.getElementById('counter');
-animateWhenVisible(counter, 0, 3, 500); // Animate from 0 to 100 over 2 seconds
+animateWhenVisible(counter, 0, count, 500); // Animate from 0 to 100 over 2 seconds
 
 
 // <---------------------------------project animation-----------------------------

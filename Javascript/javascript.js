@@ -235,6 +235,7 @@ const areaText = document.getElementById("autoExpand");
 areaText.addEventListener("input", function () {
     this.style.height = "auto";
     this.style.height = (this.scrollHeight) + "px";
+    this.style.resize = "none";
 })
 
 
