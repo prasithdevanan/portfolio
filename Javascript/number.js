@@ -29,7 +29,7 @@ function animateWhenVisible(element, start, end, duration) {
 
         entries.forEach(entry => {
             const currentScrollY = window.scrollY;
-            if (entry.isIntersecting && currentScrollY <800) {
+            if (entry.isIntersecting) {
                 setTimeout(() => {
                     animateValue(element, start, end, duration);
                 }, 600);
@@ -89,7 +89,7 @@ function animateWhenVisible1(element, start, end, duration) {
 
         entries.forEach(entry => {
             const currentScrollY = window.scrollY;
-            if (entry.isIntersecting && currentScrollY <800) {
+            if (entry.isIntersecting) {
                 setTimeout(() => {
                     animateValue1(element, start, end, duration);
                 }, 600);
