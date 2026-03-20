@@ -235,6 +235,7 @@ const areaText = document.getElementById("autoExpand");
 areaText.addEventListener("input", function () {
     this.style.height = "auto";
     this.style.height = (this.scrollHeight) + "px";
+    this.style.resize = "none";
 })
 
 
@@ -285,3 +286,30 @@ document.addEventListener('mousemove', (event) => {
     cursor.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
 });
 
+
+
+///---------------------image loading ---------------------//
+window.addEventListener("load", () => {
+    const container = document.getElementById("logo-container");
+    const images = container.querySelectorAll("img");
+    let loadedCound = 0;
+
+    images.forEach(img => {
+        if (img.complete) {
+            loadedCound++;
+        } else {
+            img.addEventListener("load", () => {
+                loadedCound++;
+                if (loadedCound === images.length) {
+                    container.classList.remove("hidden");
+                    container.classList.add("show");
+                }
+            })
+        }
+    });
+
+    if (loadedCound === images.length) {
+        container.classList.remove("hidden");
+        container.classList.add("show");
+    }
+});
