@@ -1579,3 +1579,35 @@ section {
     transition: opacity 0.5 ease;
 
 }
+
+
+/* // Experiences----------------------- */
+.experience-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.262);
+}
+
+.experience-card-line {
+    width: 10px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.656);
+    border:none;
+}
+
+.experience-card-heading {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+@media screen and (max-width:700px) {
+    .experience-card {
+        padding: 10px 10px;
+    }
+}
