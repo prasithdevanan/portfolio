@@ -2,7 +2,7 @@
 
 // Function to animate a number
 
-let lastScrollY = window.scrollY;
+// let lastScrollY = window.scrollY;
 
 // <-------------------------------------------Experiences animation--------------------------------------------
 

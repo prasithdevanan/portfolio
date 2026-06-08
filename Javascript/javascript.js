@@ -210,9 +210,9 @@ window.addEventListener("load", () => {
         requestAnimationFrame(animate);
     }
 
-    function reloadscreen() {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    // function reloadscreen() {
+    //     window.scrollTo({ top: 0, behavior: "smooth" });
+    // }
 
     animate();
     reloadscreen();
