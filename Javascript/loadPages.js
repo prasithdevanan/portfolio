@@ -1,6 +1,6 @@
 async function loadSection(id, file) {
     const container = document.getElementById(id);
-    console.log(id); 
+    console.log(id);
     console.log(container);
     if (!container) return;
 
@@ -28,13 +28,26 @@ async function loadPage() {
         loadSection("skills", "./Html/skills.html"),
         loadSection("about", "./Html/about.html"),
         loadSection("heroContent", "./Html/hero.html"),
-        loadSection("getInTouch", "./Html/getInTouch.html")
+        loadSection("get-in-touch", "./Html/getInTouch.html")
     ]);
 
     // HTML now exists, so initialize it
     initCurrentWork();
 
+    // Experience Section
     initAboutCounters()
+
+    // logo animation
+    initImageLoading();
+
+    //logo animation
+    initHeroTools();
+
+    // captcha
+    initCaptcha();
+
+    // Start cursor
+    initCustomCursor();
 
 }
 

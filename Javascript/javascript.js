@@ -60,16 +60,27 @@ function Myfunction() {
 // ------------------------photoshopLogo Animation----------------------//
 
 
-window.addEventListener("load", () => {
-    const container = document.getElementById("home");
+function initHeroTools() {
+    const container = document.getElementById("hero-tools");
+    if (!container) return;
+
     const logos = Array.from(container.querySelectorAll(".tool"));
 
+    // Wait for all images to load
+    Promise.all(
+        logos.map(img => {
+            if (img.complete) return Promise.resolve();
+            return new Promise(resolve => img.onload = resolve);
+        })
+    ).then(() => startAnimation(container, logos));
+}
+
+function startAnimation(container, logos) {
     const directions = [];
     const rotations = [];
     const rotationSpeeds = [];
     const positions = [];
 
-    // Function to check overlap between two boxes
     function isOverlapping(pos1, w1, h1, pos2, w2, h2) {
         return !(
             pos1.x + w1 < pos2.x ||
@@ -79,90 +90,84 @@ window.addEventListener("load", () => {
         );
     }
 
-    // Initialize logo positions and properties
+    const containerWidth = container.clientWidth;
+    const containerHeight = container.clientHeight;
+
     logos.forEach((logo, i) => {
         const logoWidth = logo.offsetWidth;
         const logoHeight = logo.offsetHeight;
-        const containerWidth = container.clientWidth;
-        const containerHeight = container.clientHeight;
 
         let position;
         let attempts = 0;
 
-        // Avoid overlapping other logos on load
         do {
             position = {
                 x: Math.random() * (containerWidth - logoWidth),
                 y: Math.random() * (containerHeight - logoHeight)
             };
 
-            let hasOverlap = false;
+            let overlap = false;
+
             for (let j = 0; j < i; j++) {
-                if (isOverlapping(position, logoWidth, logoHeight, positions[j], logos[j].offsetWidth, logos[j].offsetHeight)) {
-                    hasOverlap = true;
+                if (isOverlapping(
+                    position, logoWidth, logoHeight,
+                    positions[j],
+                    logos[j].offsetWidth,
+                    logos[j].offsetHeight
+                )) {
+                    overlap = true;
                     break;
                 }
             }
 
-            if (!hasOverlap) break;
+            if (!overlap) break;
             attempts++;
-        } while (attempts < 100); // fail-safe to prevent infinite loop
+        } while (attempts < 100);
 
         positions[i] = position;
 
         directions[i] = {
-            x: (Math.random() - 0.6) * 1.4, // range: -1 to 1
-            y: (Math.random() - 0.6) * 1.4
+            x: (Math.random() - 0.5) * 0.8,
+            y: (Math.random() - 0.5) * 0.8
         };
 
         rotations[i] = Math.random() * 360;
-        rotationSpeeds[i] = (Math.random() - 0.5) * 1;
+        rotationSpeeds[i] = (Math.random() - 0.5) * 0.8;
 
-        // Initial position
-        logo.style.transform = `translate3d(${position.x}px, ${position.y}px, 0) rotate(${rotations[i]}deg)`;
+        logo.style.transform =
+            `translate3d(${position.x}px, ${position.y}px, 0) rotate(${rotations[i]}deg)`;
     });
 
-    // Animation loop
     function animate() {
-        const containerWidth = container.clientWidth;
-        const containerHeight = container.clientHeight;
-
         logos.forEach((logo, i) => {
-            const logoWidth = logo.offsetWidth;
-            const logoHeight = logo.offsetHeight;
+            const w = logo.offsetWidth;
+            const h = logo.offsetHeight;
 
-            // Update position
             positions[i].x += directions[i].x;
             positions[i].y += directions[i].y;
 
-            // Bounce off walls
-            if (positions[i].x < 0 || positions[i].x > containerWidth - logoWidth) {
+            if (positions[i].x < 0 || positions[i].x > containerWidth - w) {
                 directions[i].x *= -1;
-                positions[i].x = Math.max(0, Math.min(containerWidth - logoWidth, positions[i].x));
             }
 
-            if (positions[i].y < 0 || positions[i].y > containerHeight - logoHeight) {
+            if (positions[i].y < 0 || positions[i].y > containerHeight - h) {
                 directions[i].y *= -1;
-                positions[i].y = Math.max(0, Math.min(containerHeight - logoHeight, positions[i].y));
             }
 
-            // Update rotation
             rotations[i] += rotationSpeeds[i];
 
-            // Apply styles
-            logo.style.transform = `translate3d(${positions[i].x}px, ${positions[i].y}px, 0) rotate(${rotations[i]}deg)`;
+            logo.style.transform =
+                `translate3d(${positions[i].x}px, ${positions[i].y}px, 0) rotate(${rotations[i]}deg)`;
         });
 
-        requestAnimationFrame(animate);
-    }
-
-    function reloadscreen() {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        requestAnimationFrame(() => {
+            requestAnimationFrame(animate);
+        });
     }
 
     animate();
-    reloadscreen();
-});
+}
+
 
 
 
@@ -235,8 +240,8 @@ document.addEventListener('mousemove', (event) => {
 
 
 ///---------------------image loading ---------------------//
-window.addEventListener("load", () => {
-    const container = document.getElementById("home");
+function initImageLoading() {
+    const container = document.getElementById("hero-tools");
     console.log(container);
     const images = container.querySelectorAll("img");
     let loadedCound = 0;
@@ -259,4 +264,67 @@ window.addEventListener("load", () => {
         container.classList.remove("hidden");
         container.classList.add("show");
     }
-});
+};
+
+function initCustomCursor() {
+
+    // Don't run on mobile/touch devices
+    if (window.matchMedia("(hover: none), (pointer: coarse)").matches) {
+        return;
+    }
+
+    // Create cursor
+    const cursor = document.createElement("div");
+
+    cursor.className = "custom-cursor";
+
+    cursor.innerHTML = `
+        <i class="bi bi-cursor"></i>
+    `;
+
+    document.body.appendChild(cursor);
+
+
+    // Move cursor
+    document.addEventListener("mousemove", (e) => {
+
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+
+        cursor.classList.remove("hidden");
+
+    });
+
+
+    // Hide when leaving window
+    document.addEventListener("mouseleave", () => {
+        cursor.classList.add("hidden");
+    });
+
+
+    document.addEventListener("mouseenter", () => {
+        cursor.classList.remove("hidden");
+    });
+
+
+    // Hover elements
+    const interactiveElements = document.querySelectorAll(
+        "a, button, input, textarea, select"
+    );
+
+
+    interactiveElements.forEach((element) => {
+
+        element.addEventListener("mouseenter", () => {
+            cursor.classList.add("active");
+        });
+
+        element.addEventListener("mouseleave", () => {
+            cursor.classList.remove("active");
+        });
+
+    });
+
+}
+
+

@@ -478,9 +478,18 @@
 
 .hero-tools {
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 90%;
+    height: 90vh;
+
     pointer-events: none;
     z-index: 2;
+    display: none;
+    overflow: hidden;
+    /* important for moving icons */
 }
 
 .tool {
@@ -489,7 +498,7 @@
     height: 48px;
 
     object-fit: contain;
-    opacity: .5;
+    opacity: .6;
     /* filter: grayscale(100%); */
 
     pointer-events: auto;
@@ -497,6 +506,8 @@
 
     transition: opacity .4s ease, filter .4s ease;
     will-change: transform;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
 }
 
 .tool:hover {
@@ -582,6 +593,14 @@
     transform: translateY(-4px) scale(1.05);
     border-color: rgba(255, 255, 255, .3);
     box-shadow: 0 15px 35px rgba(10, 102, 194, .3);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.show {
+    display: flex !important;
 }
 
 
