@@ -1,108 +1,162 @@
+function animateCounter(element, target, duration = 500) {
 
+    if (!element) return;
 
-// Function to animate a number
+    let startTime = null;
 
-// let lastScrollY = window.scrollY;
+    function update(timestamp) {
 
-// <-------------------------------------------Experiences animation--------------------------------------------
+        if (!startTime) {
+            startTime = timestamp;
+        }
 
-function animateValue(obj, start, end, duration) {
-    let startTimestamp = null;
+        const progress = Math.min(
+            (timestamp - startTime) / duration,
+            1
+        );
 
-    const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        const value = Math.floor(progress * (end - start) + start);
-        obj.innerHTML = "0" + value + "+";
+        // Fast ease-out
+        const eased =
+            1 - Math.pow(1 - progress, 2);
+
+        const value = Math.floor(
+            eased * target
+        );
+
+        element.textContent = `${value}+`;
 
         if (progress < 1) {
-            window.requestAnimationFrame(step);
+            requestAnimationFrame(update);
+        } else {
+            element.textContent = `${target}+`;
         }
-    };
+    }
 
-    window.requestAnimationFrame(step);
+    requestAnimationFrame(update);
 }
 
 
-function animateWhenVisible(element, start, end, duration) {
-    const observer = new IntersectionObserver((entries, observer) => {
+/* =========================================================
+   ABOUT COUNTERS
+========================================================= */
 
-        entries.forEach(entry => {
-            const currentScrollY = window.scrollY;
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    animateValue(element, start, end, duration);
-                }, 600);
-            }
-        })
-    }, {
-        threshold: 0.6
+function initAboutCounters() {
 
-    })
-    observer.observe(element);
-}
+    const experienceCounter =
+        document.getElementById("counter");
 
-// <!-----------------------------------------Experiences animation--------------------------------------------
+    const projectCounter =
+        document.getElementById("projectCount");
 
-//years calculate
-const years = () => {
-    const currentYear = new Date().getFullYear();
+    if (!experienceCounter && !projectCounter) {
+        return;
+    }
+
+
+    /* =====================================================
+       EXPERIENCE
+    ===================================================== */
+
     const startYear = 2023;
-    const yearsExperience = currentYear - startYear;
-    return yearsExperience;
-}
-const count = years();
+    const currentYear = new Date().getFullYear();
 
-// Usage
-const counter = document.getElementById('counter');
-animateWhenVisible(counter, 0, count, 500); // Animate from 0 to 100 over 2 seconds
+    const yearsOfExperience =
+        Math.max(0, currentYear - startYear);
 
 
-// <---------------------------------project animation-----------------------------
+    /* =====================================================
+       SCROLL OBSERVER
+    ===================================================== */
 
-function animateValue1(project, start, end, duration) {
-    let startTimestamp = null;
+    const observer = new IntersectionObserver(
+        (entries) => {
 
-    const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        const value = Math.floor(progress * (end - start) + start);
-        if (value > 9) {
-            project.innerHTML = value + "+";
+            entries.forEach(entry => {
+
+                const element = entry.target;
+
+
+                /* =========================================
+                   ENTER VIEW
+                ========================================= */
+
+                if (entry.isIntersecting) {
+
+                    // Reset before starting
+                    element.textContent = "0+";
+
+
+                    // Experience
+                    if (element.id === "counter") {
+
+                        animateCounter(
+                            element,
+                            yearsOfExperience,
+                            500
+                        );
+                    }
+
+
+                    // Projects
+                    if (element.id === "projectCount") {
+
+                        animateCounter(
+                            element,
+                            10,
+                            600
+                        );
+                    }
+
+                }
+
+
+                /* =========================================
+                   LEAVE VIEW
+                ========================================= */
+
+                else {
+
+                    // Reset so it can animate again
+                    element.textContent = "0+";
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.25
         }
-        else {
-            project.innerHTML = "0" + value + "+";
-        }
+    );
 
 
-        if (progress < 1) {
-            window.requestAnimationFrame(step);
-        }
-    };
+    /* =====================================================
+       OBSERVE
+    ===================================================== */
 
-    window.requestAnimationFrame(step);
+    if (experienceCounter) {
+        observer.observe(experienceCounter);
+    }
+
+    if (projectCounter) {
+        observer.observe(projectCounter);
+    }
 }
 
 
-function animateWhenVisible1(element, start, end, duration) {
-    const observer = new IntersectionObserver((entries, observer) => {
+/* =========================================================
+   START
+========================================================= */
 
-        entries.forEach(entry => {
-            const currentScrollY = window.scrollY;
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    animateValue1(element, start, end, duration);
-                }, 600);
+if (document.readyState === "loading") {
 
-            }
-        })
-    }, {
-        threshold: 0.6
+    document.addEventListener(
+        "DOMContentLoaded",
+        initAboutCounters
+    );
 
-    })
-    observer.observe(element);
+} else {
+
+    initAboutCounters();
+
 }
-
-
-const project = document.getElementById('projectCount');
-animateWhenVisible1(project, 0, 10, 800);

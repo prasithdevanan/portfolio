@@ -1,0 +1,106 @@
+$(document).ready(function () {
+
+    const $services = $(".services-mobile");
+
+    function initServicesSlider() {
+
+        if (!$services.length) {
+            return;
+        }
+
+        /*
+         * Only initialize Slick on mobile.
+         */
+        if (window.innerWidth <= 800) {
+
+            if (!$services.hasClass("slick-initialized")) {
+
+                $services.slick({
+
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+
+                    centerMode: true,
+                    centerPadding: "35px",
+
+                    infinite: true,
+
+                    arrows: true,
+                    dots: true,
+
+                    autoplay: true,
+                    autoplaySpeed: 3500,
+
+                    speed: 600,
+
+                    pauseOnHover: false,
+                    pauseOnFocus: false,
+
+                    prevArrow:
+                        '<button type="button" class="services-prev">' +
+                        '<i class="bi bi-arrow-left"></i>' +
+                        '</button>',
+
+                    nextArrow:
+                        '<button type="button" class="services-next">' +
+                        '<i class="bi bi-arrow-right"></i>' +
+                        '</button>'
+
+                });
+
+            }
+
+        } else {
+
+            /*
+             * Destroy Slick when returning to desktop.
+             */
+            if ($services.hasClass("slick-initialized")) {
+
+                $services.slick("unslick");
+
+            }
+
+        }
+
+    }
+
+
+    /*
+     * Initial load
+     */
+    initServicesSlider();
+
+
+    /*
+     * Resize
+     */
+    let resizeTimer;
+
+    $(window).on("resize", function () {
+
+        clearTimeout(resizeTimer);
+
+        resizeTimer = setTimeout(function () {
+
+            initServicesSlider();
+
+        }, 150);
+
+    });
+
+
+    /*
+     * AOS
+     */
+    if (typeof AOS !== "undefined") {
+
+        AOS.init({
+            duration: 700,
+            once: true,
+            offset: 80
+        });
+
+    }
+
+});

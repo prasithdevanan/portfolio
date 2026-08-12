@@ -1,0 +1,42 @@
+async function loadSection(id, file) {
+    const container = document.getElementById(id);
+    console.log(id); 
+    console.log(container);
+    if (!container) return;
+
+    try {
+        const response = await fetch(file);
+
+        if (!response.ok) {
+            throw new Error(`Failed to load ${file}`);
+        }
+
+        container.innerHTML = await response.text();
+
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+
+async function loadPage() {
+
+    await Promise.all([
+        loadSection("LatestWork", "./Html/latestWork.html"),
+        loadSection("experience", "./Html/experiences.html"),
+        loadSection("services", "./Html/services.html"),
+        loadSection("skills", "./Html/skills.html"),
+        loadSection("about", "./Html/about.html"),
+        loadSection("heroContent", "./Html/hero.html"),
+        loadSection("getInTouch", "./Html/getInTouch.html")
+    ]);
+
+    // HTML now exists, so initialize it
+    initCurrentWork();
+
+    initAboutCounters()
+
+}
+
+
+loadPage();

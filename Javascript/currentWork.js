@@ -1,28 +1,68 @@
-const container = document.querySelectorAll(".current-work-main");
+function initCurrentWork() {
 
-container.forEach((containers) => {
-    const img = containers.querySelector(".current-work");
-    const button_container = containers.querySelector(".current-work-btn");
-    const link = containers.dataset.link;
-    const workName = containers.querySelector(".current-work-name");
+    const containers =
+        document.querySelectorAll(".current-work-main");
 
-    img.addEventListener("mousemove", (e) => {
-        button_container.style.display = "block";
-        const react = containers.getBoundingClientRect();
-        button_container.style.left = `${e.clientX - react.left}px`;
-        button_container.style.top = `${e.clientY - react.top}px`;
+
+    containers.forEach((container) => {
+
+        const img =
+            container.querySelector(".current-work");
+
+        const button =
+            container.querySelector(".current-work-btn");
+
+        const link =
+            container.dataset.link;
+
+        const workName =
+            container.querySelector(".current-work-name");
+
+
+        // Mouse enter
+        img.addEventListener("mouseenter", () => {
+
+            button.classList.add("show");
+            workName.style.display = "block";
+
+        });
+
+
+        // Mouse move
+        img.addEventListener("mousemove", (e) => {
+
+            const rect =
+                container.getBoundingClientRect();
+
+            button.style.left =
+                `${e.clientX - rect.left}px`;
+
+            button.style.top =
+                `${e.clientY - rect.top}px`;
+
+        });
+
+
+        // Mouse leave
+        img.addEventListener("mouseleave", () => {
+
+            button.classList.remove("show");
+            workName.style.display = "none";
+
+        });
+
+
+        // Open project
+        img.addEventListener("click", () => {
+
+            window.open(
+                link,
+                "_blank",
+                "noopener,noreferrer"
+            );
+
+        });
+
     });
 
-    img.addEventListener("mouseleave", () => {
-        button_container.style.display = "none";
-        workName.style.display = "none";
-    });
-
-    img.addEventListener("mousedown", () => {
-        window.open(link, "_blank");
-    });
-
-    img.addEventListener("mouseenter", () => {
-        workName.style.display = "block";
-    });
-});
+}

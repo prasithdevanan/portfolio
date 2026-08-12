@@ -56,67 +56,13 @@ function Myfunction() {
     navMobileBackdrop.classList.remove("backdrop");
 }
 
-/*-----------------Carosal  --------------*/
-var servicesMobile = document.getElementById("services-mobile").style.display = "none !important";
-
-
-window.addEventListener("resize", function (event) {
-
-})
-
-$('.services-mobile').slick({
-    centerMode: true,
-    centerPadding: '60px',
-    slidesToShow: 3,
-    initialSlide: 1,
-    prevArrow: '<button type="button" class="btn btn-primary slick-prev"><i class="bi bi-caret-left-fill"></i></button>',
-    nextArrow: '<button type="button" class="btn btn-primary slick-next"><i class="bi bi-caret-right-fill"></i></button>',
-    responsive: [
-        {
-            breakpoint: 1080,  // Tablet & below
-            settings: {
-                arrows: true,
-                centerMode: true,
-                centerPadding: '40px',
-                slidesToShow: 2
-            }
-        },
-        {
-            breakpoint: 800,  // Mobile & below
-            settings: {
-                arrows: true,
-                centerMode: true,
-                centerPadding: '30px',
-                slidesToShow: 2
-            }
-        },
-
-        {
-            breakpoint: 700,  // Mobile & below
-            settings: {
-                arrows: false,
-                centerMode: true,
-                centerPadding: '18px',
-                slidesToShow: 1,
-                autoplay: true,              // Enable autoplay
-                autoplaySpeed: 3000,         // 3 seconds between slides
-                speed: 600,                  // Optional: transition speed
-                pauseOnHover: false,         // Optional: keep autoplaying on hover
-                pauseOnFocus: false          // Optional: keep autoplaying on focus
-            }
-
-        }
-    ]
-});
-
-AOS.init();
 
 // ------------------------photoshopLogo Animation----------------------//
 
 
 window.addEventListener("load", () => {
-    const container = document.getElementById("logo-container");
-    const logos = Array.from(container.querySelectorAll(".back-logo"));
+    const container = document.getElementById("home");
+    const logos = Array.from(container.querySelectorAll(".tool"));
 
     const directions = [];
     const rotations = [];
@@ -210,9 +156,9 @@ window.addEventListener("load", () => {
         requestAnimationFrame(animate);
     }
 
-    // function reloadscreen() {
-    //     window.scrollTo({ top: 0, behavior: "smooth" });
-    // }
+    function reloadscreen() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
 
     animate();
     reloadscreen();
@@ -222,21 +168,21 @@ window.addEventListener("load", () => {
 
 
 
-const emailInput = document.getElementById("email-input");
+// const emailInput = document.getElementById("email-input");
 
-emailInput.addEventListener("input", function () {
-    emailInput.value = emailInput.value.toLowerCase();
-});
-
-
-const areaText = document.getElementById("autoExpand");
+// emailInput.addEventListener("input", function () {
+//     emailInput.value = emailInput.value.toLowerCase();
+// });
 
 
-areaText.addEventListener("input", function () {
-    this.style.height = "auto";
-    this.style.height = (this.scrollHeight) + "px";
-    this.style.resize = "none";
-})
+// const areaText = document.getElementById("autoExpand");
+
+
+// areaText.addEventListener("input", function () {
+//     this.style.height = "auto";
+//     this.style.height = (this.scrollHeight) + "px";
+//     this.style.resize = "none";
+// })
 
 
 
@@ -290,7 +236,8 @@ document.addEventListener('mousemove', (event) => {
 
 ///---------------------image loading ---------------------//
 window.addEventListener("load", () => {
-    const container = document.getElementById("logo-container");
+    const container = document.getElementById("home");
+    console.log(container);
     const images = container.querySelectorAll("img");
     let loadedCound = 0;
 
