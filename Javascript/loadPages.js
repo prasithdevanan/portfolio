@@ -53,15 +53,13 @@ async function loadPage() {
     // Start cursor
     initCustomCursor();
 
-    //aos
-    initAOS();
-
     //smooth scroll
     initSmoothScroll();
 
 }
 
 
+//smooth scroll
 function initSmoothScroll() {
     console.log("smooth scroll", window.scrollY);
     window.scrollTo({
@@ -69,6 +67,7 @@ function initSmoothScroll() {
         behavior: "smooth"
     });
 }
+
 
 
 loadPage();

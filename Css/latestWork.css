@@ -134,10 +134,8 @@
 
     border: 1px solid #242424;
     border-radius: 28px;
-
+   cursor: pointer;
     background: #111;
-
-    cursor: none;
 
     transition:
         transform .5s cubic-bezier(.2, .8, .2, 1),

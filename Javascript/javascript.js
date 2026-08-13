@@ -15,49 +15,106 @@
 const navMobile = document.getElementById("nav-mobile");
 const menuIcon = document.querySelector(".menuIcon");
 const navMobileBackdrop = document.getElementById("nav-mobile-backdrop");
-
-navMobile.classList.remove("show")
-
-menuIcon.addEventListener("click", function () {
-    if (window.innerWidth <= 819) {
-        navMobile.classList.toggle("show");
-        document.body.classList.toggle("freeze-scroll");
-        navMobileBackdrop.classList.toggle("backdrop");
-    }
-
-    else {
-        navMobile.classList.remove("show");
-        document.body.classList.remove("freeze-scroll");
-        navMobileBackdrop.classList.remove("backdrop");
-    }
-})
-
-window.addEventListener("resize", function () {
-    if (this.window.innerWidth > 820) {
-        navMobile.classList.remove("show");
-        document.body.classList.remove("freeze-scroll");
-        navMobileBackdrop.classList.remove("backdrop");
-    }
-})
-
-window.addEventListener("click", function (event) {
-    if (!navMobile.contains(event.target) && !menuIcon.contains(event.target) && navMobile.classList.contains("show") &&
-        document.body.classList.contains("freeze-scroll") && navMobileBackdrop.classList.contains("backdrop")) {
-        navMobile.classList.remove("show");
-        document.body.classList.remove("freeze-scroll");
-        navMobileBackdrop.classList.remove("backdrop");
-    }
-})
+const mobileClose = document.querySelector(".mobile-close");
+const mobileLinks = document.querySelectorAll("#nav-mobile a");
 
 
-function Myfunction() {
-    navMobile.classList.remove("show");
-    document.body.classList.remove("freeze-scroll");
-    navMobileBackdrop.classList.remove("backdrop");
+/* =========================================
+   OPEN / CLOSE MOBILE MENU
+========================================= */
+
+function openMobileMenu() {
+
+    navMobile.classList.add("show");
+    navMobileBackdrop.classList.add("backdrop");
+
+    document.body.classList.add("freeze-scroll");
+
+    menuIcon.setAttribute("aria-expanded", "true");
+    menuIcon.setAttribute("aria-label", "Close navigation");
 }
 
 
-// ------------------------photoshopLogo Animation----------------------//
+function closeMobileMenu() {
+
+    navMobile.classList.remove("show");
+    navMobileBackdrop.classList.remove("backdrop");
+
+    document.body.classList.remove("freeze-scroll");
+
+    menuIcon.setAttribute("aria-expanded", "false");
+    menuIcon.setAttribute("aria-label", "Open navigation");
+}
+
+
+/* =========================================
+   MENU BUTTON
+========================================= */
+
+menuIcon.addEventListener("click", () => {
+
+    if (window.innerWidth <= 820) {
+
+        if (navMobile.classList.contains("show")) {
+            closeMobileMenu();
+        } else {
+            openMobileMenu();
+        }
+
+    }
+
+});
+
+
+/* =========================================
+   CLOSE BUTTON
+========================================= */
+
+mobileClose.addEventListener("click", () => {
+    closeMobileMenu();
+});
+
+
+/* =========================================
+   BACKDROP CLICK
+========================================= */
+
+navMobileBackdrop.addEventListener("click", (event) => {
+
+    // Only close when clicking the backdrop itself
+    if (event.target === navMobileBackdrop) {
+        closeMobileMenu();
+    }
+
+});
+
+
+/* =========================================
+   MOBILE NAVIGATION LINKS
+========================================= */
+
+mobileLinks.forEach((link) => {
+
+    link.addEventListener("click", () => {
+        closeMobileMenu();
+    });
+
+});
+
+
+/* =========================================
+   WINDOW RESIZE
+========================================= */
+
+window.addEventListener("resize", () => {
+
+    if (window.innerWidth > 820) {
+        closeMobileMenu();
+    }
+
+});
+
+// ------------------------Background Animation ----------------------//
 
 
 function initHeroTools() {
@@ -210,8 +267,6 @@ function startAnimation(container, logos) {
 
 const footer = document.getElementById("footer-message");
 
-
-
 window.addEventListener("resize", () => {
     const windowWidth = window.innerWidth;
 
@@ -245,13 +300,41 @@ const fixed = document.getElementById("fixedElement");
 
 
 // ---------------------------cursor change--------------//
-
 const cursor = document.querySelector(".cursor-circle");
 
-document.addEventListener('mousemove', (event) => {
-    cursor.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
-});
+if (cursor) {
 
+    let mouseX = 0;
+    let mouseY = 0;
+
+    let cursorX = 0;
+    let cursorY = 0;
+
+
+    document.addEventListener("mousemove", (event) => {
+
+        mouseX = event.clientX;
+        mouseY = event.clientY;
+
+    });
+
+
+    function animateCursor() {
+
+        cursorX += (mouseX - cursorX) * 0.15;
+        cursorY += (mouseY - cursorY) * 0.15;
+
+        cursor.style.transform =
+            `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
+
+        requestAnimationFrame(animateCursor);
+
+    }
+
+
+    animateCursor();
+
+}
 
 
 ///---------------------image loading ---------------------//

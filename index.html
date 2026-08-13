@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./Css/about.css">
     <link rel="stylesheet" href="./Css/hero.css">
     <link rel="stylesheet" href="./Css/getInTouch.css">
+    <link rel="stylesheet" href="./Css/Loading.css">
 
     <!-- <<<< -----------------Fav Icon--------------------------------->
     <link rel="shortcut icon" href="./Img/FavIcon.png" type="image/x-icon">
@@ -44,204 +45,169 @@
 </head>
 
 
-<body>
+<body class="is-loading">
+
+    <section id="Loading"></section>
 
     <!-- <<<< -----------------NavBar Section--------------------------------->
+    <nav class="navbarHeader" id="navbar">
 
-    <navbar class="navbarHeader" id="navbar">
+        <!-- Availability -->
         <div class="avaliable-status">
-            <div>
-                <div></div>
+
+            <span class="availability-dot">
+                <span></span>
+            </span>
+
+            <div class="availability-text">
+                <strong>Available</strong>
+                <small>Full time / Freelance</small>
             </div>
-            <h2>Avaliable</h2>
-            <h4>Full time/Freelance</h4>
 
         </div>
-        <div class="menuIcon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="19" viewBox="0 0 36 29" fill="none">
-                <rect width="35.9988" height="4" rx="2" fill="white" />
-                <rect x="13.0898" y="12.5" width="22.9083" height="4" rx="2" fill="white" />
-                <rect x="4.91016" y="25" width="31.0899" height="4" rx="2" fill="white" />
-            </svg>
-        </div>
+
+
+        <!-- Desktop navigation -->
         <div class="headerMenu">
-            <ul class="navHover">
-                <a href="#heroContent">
-                    <li>Home</li>
-                </a>
-                <a href="#about">
-                    <li>About Me</li>
-                </a>
 
-                <a href="#services">
-                    <li>Services</li>
-                </a>
-                <a href="#latestWork">
-                    <li>Portfolio</li>
-                </a>
+            <ul class="navHover">
+
+                <li>
+                    <a href="#heroContent">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">About Me</a>
+                </li>
+
+                <li>
+                    <a href="#services">Services</a>
+                </li>
+
+                <li>
+                    <a href="#latestWork">Portfolio</a>
+                </li>
+
             </ul>
 
-            <a href="#get">
-                <button class="connect">Connect With Me</button>
+
+            <a href="#get-in-touch" class="connect">
+                Connect With Me
+                <span>↗</span>
             </a>
+
         </div>
 
-    </navbar>
+
+        <!-- Mobile menu button -->
+        <button class="menuIcon" type="button" aria-label="Open navigation" aria-controls="nav-mobile"
+            aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </nav>
 
 
+    <!-- Mobile navigation -->
     <div id="nav-mobile-backdrop">
-        <navMobile id="nav-mobile">
 
-            <div class="headerMenu-mobile">
-                <ul class="navHover">
-                    <a href="#heroContent" onclick="Myfunction()">
-                        <li>Home</li>
-                    </a>
-                    <a href="#about" onclick="Myfunction()">
-                        <li>About Me</li>
-                    </a>
+        <nav id="nav-mobile">
 
-                    <a href="#services" onclick="Myfunction()">
-                        <li>Services</li>
-                    </a>
-                    <a href="#latestWork" onclick="Myfunction()">
-                        <li>Portfolio</li>
-                    </a>
-                </ul>
+            <div class="mobile-menu-header">
 
-                <a href="#get-in-touch">
-                    <button class="connect" onclick="Myfunction()">Connect With Me</button>
-                </a>
+                <span>Navigation</span>
 
+                <button type="button" class="mobile-close" aria-label="Close navigation">
+                    ×
+                </button>
 
             </div>
-        </navMobile>
+
+
+            <div class="headerMenu-mobile">
+
+                <ul class="navHover">
+
+                    <li>
+                        <a href="#heroContent">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#about">About Me</a>
+                    </li>
+
+                    <li>
+                        <a href="#services">Services</a>
+                    </li>
+
+                    <li>
+                        <a href="#latestWork">Portfolio</a>
+                    </li>
+
+                </ul>
+
+
+                <a href="#get-in-touch" class="connect mobile-connect">
+                    Connect With Me
+                    <span>↗</span>
+                </a>
+
+            </div>
+
+        </nav>
+
     </div>
 
 
 
     <!-- <<<< -----------------Main Hero Section--------------------------------->
-
-    <!-- <mainHead>
-        <div class="heroContent gradiant-background" id="heroContent">
-
-        
-            <div id="logo-container" class="hidden">
-                <img src="Img/figmaLogo.png" alt="image" class="back-logo blur">
-                <img src="Img/Photoshop.png" alt="image" class="back-logo blur">
-                <img src="Img/Adobe XD.png" alt="img" class="back-logo blur">
-                <img src="Img/blender.png" alt="img" class="back-logo blur">
-                <img src="Img/css.png" alt="img" class="back-logo blur">
-                <img src="Img/html.png" alt="img" class="back-logo blur">
-                <img src="Img/javascript.png" alt="img" class="back-logo blur">
-                <img src="Img/miro.png" alt="img" class="back-logo blur">
-                <img src="Img/illustrator.png" alt="img" class="back-logo blur">
-            </div>
-
-
-            <div class="heroContent hero-center-content" data-aos="flip-left" data-aos-duration="600">
-                <img src="Img/profile.png" alt="img" class="hero-profile">
-                <h4>
-                    I'm Prasith Devanan,<br>
-                    <span></span>
-              
-                </h4>
-                <div class="mainBtn">
-                    <a href="#get-in-touch">
-                        <button class="connect">Connect with me</button>
-                    </a>
-                    <a href="Img/Resume.pdf" target="_blank">
-                        <button class="resume">My Resume</button>
-                    </a>
-                </div>
-            </div>
-            <a href="https://www.linkedin.com/in/prasith-devanan-36213a262/" target="_blank">
-                <div class="footer-details" id="fixedElement">
-                    <img src="./Img/linkedin.png" alt="img">
-                </div>
-            </a>
-
-
-            <div class="container">
-                <div class="face">
-                    <img src="./Img/grid.png" alt="img">
-                </div>
-            </div>
-
-        </div>
-    </mainHead> -->
-
     <section id="heroContent"></section>
+    <div class="section-divider">
+        <span class="divider-number">01</span>
+        <span class="divider-line"></span>
+        <span class="divider-number">02</span>
+    </div>
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/prasith-devanan-36213a262/" target="_blank" rel="noopener noreferrer"
+        class="hero-social" aria-label="LinkedIn">
+        <img src="Img/linkedin.png" alt="">
+    </a>
+
+
     <!-- <<<< -----------------About Section--------------------------------->
-
-
     <section id="about"></section>
     <script src="./Javascript/number.js" defer></script>
+    <div class="section-divider">
+        <span class="divider-number">02</span>
+        <span class="divider-line"></span>
+        <span class="divider-number">03</span>
+    </div>
+
 
     <!-- -----------------------------------My skills---------------------------------- -->
     <section id="skills"></section>
+    <div class="section-divider">
+        <span class="divider-number">03</span>
+        <span class="divider-line"></span>
+        <span class="divider-number">04</span>
+    </div>
+
 
     <!-- -------------------------Experiences--------------------------------- -->
-    <!-- <section>
-        <div id="experiences">
-            <div class="about-heading">
-                <h4>Experiences</h4>
-            </div>
-            <div class="experience">
-                <div class="experiences-main">
-                    <div class="experience-card" data-aos="zoom-in" data-aos-duration="500">
-                        <div class="experience-card-heading">
-                            <div>
-                                <img src="./Img/Augray Logo.png" alt="logo" class="experience-card-logo">
-                                <h2>Augray Private Limited</h2>
-                            </div>
-                            <div class="experience-card-date">
-                                <h2>Apr-2024</h2>
-                                <hr class="experience-card-line">
-                                <h2>Present</h2>
-                            </div>
-
-                        </div>
-                        <div class="experience-card-text">
-                            <h3>UI/UX Developer</h3>
-                            <p>I'm currently working as a UI/UX developer at a leading tech company. My role involves
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="experiences-main">
-                    <div class="experience-card" data-aos="zoom-in" data-aos-duration="500">
-                        <div class="experience-card-heading">
-                            <div>
-                                <img src="./Img/figmaLogo.png" alt="logo" class="experience-card-logo">
-                                <h2>Techie hope solution</h2>
-                            </div>
-                            <div class="experience-card-date">
-                                <h2>Apr-2022</h2>
-                                <hr class="experience-card-line">
-                                <h2>Nov-2023</h2>
-                            </div>
-
-                        </div>
-                        <div class="experience-card-text">
-                            <h3>Graphic Designer</h3>
-                            <p>I worked as a graphic designer at a startup, where I created visually stunning designs
-                                for various projects.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section> -->
-
     <section id="experience"></section>
+    <div class="section-divider">
+        <span class="divider-number">04</span>
+        <span class="divider-line"></span>
+        <span class="divider-number">05</span>
+    </div>
+
+
     <!-- jQuery FIRST -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
         </script>
-
     <!-- Slick SECOND -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js">
     </script>
@@ -250,9 +216,7 @@
 
     <!-- AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
-
     <script src="Javascript/services.js" defer></script>
-
     <script>
         function initAOS() {
             if (typeof AOS !== "undefined") {
@@ -267,28 +231,29 @@
             }
         };
     </script>
+
+
     <!-- <<<< -----------------Services Section--------------------------------->
-
-
     <section id="services"></section>
+
 
 
 
 
     <!-- --------------------------------My Latest work----------------------------- -->
     <section id="LatestWork"></section>
-
     <script src="./Javascript/currentWork.js" defer></script>
-
     <script src="Javascript/folderOpen.js" defer></script>
 
-    <!-- --------------------------------Get in touch----------------------------- -->
 
+
+
+    <!-- --------------------------------Get in touch----------------------------- -->
     <section id="get-in-touch"></section>
     <script src="./Javascript/captcha.js"></script>
+
+
     <!-- --------------------------------Bottom----------------------------- -->
-
-
     <footer class="footer-main" id="footer">
 
         <!-- Ambient background -->
@@ -405,23 +370,8 @@
     </footer>
 
     <div class="cursor-circle"></div>
-    
-    <script>
-
-        /*
-         * AOS
-         */
-        if (typeof AOS !== "undefined") {
-            console.log("AOS ++++++++++++++++++++++");
-            AOS.init({
-                duration: 700,
-                once: true,
-                offset: 80
-            });
-
-        }
-    </script>
 </body>
+<script src="Javascript/loading.js" defer></script>
 <script src="Javascript/javascript.js" defer></script>
 <script src="./Javascript/loadPages.js" defer></script>
 

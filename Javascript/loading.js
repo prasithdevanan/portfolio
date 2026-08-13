@@ -35,12 +35,15 @@ function Loading() {
             setTimeout(() => {
 
                 loading.classList.add("loaded");
+                //aos
+                initAOS();
 
+                document.body.classList.remove("is-loading");
             }, 200);
 
         }
     }
-
     requestAnimationFrame(updateLoading);
+
 
 };

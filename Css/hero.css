@@ -28,7 +28,7 @@
 
     overflow: hidden;
 
-    background: var(--hero-bg);
+    /* background: var(--hero-bg); */
 
     color: var(--text);
 
@@ -75,8 +75,8 @@
     inset: 0;
 
     background-image:
-        linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px);
+        linear-gradient(rgba(58, 58, 58, 0.527) 2px, transparent 1px),
+        linear-gradient(90deg, rgba(58, 58, 58, 0.527) 2px, transparent 1px);
 
     background-size: 70px 70px;
 
@@ -671,8 +671,7 @@
 
     .hero-container {
         width: 90%;
-        min-height: 100svh;
-        padding: 80px 0 75px;
+        min-height: 80svh;
     }
 
     .hero-status {
@@ -824,6 +823,7 @@
     transition:
         color .3s ease;
 }
+
 .scroll-arrow {
     padding: 10px 8px;
     border-radius: 30%;
