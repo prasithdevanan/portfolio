@@ -170,13 +170,17 @@
     color: #fff;
 
     text-decoration: none;
-
     transition: padding .25s ease;
 }
 
 
 .contact-item:hover {
     padding-left: 8px;
+}
+
+.contact-item:hover .contact-icon {
+    color: #1d1d1d;
+    background: #fff;
 }
 
 
@@ -307,13 +311,13 @@
 
     box-sizing: border-box;
 
-    border: 1px solid #202020;
+    border: 1px solid #3c3c3c;
 
     border-radius: 8px;
 
     outline: none;
 
-    background: #090909;
+    background: #1a1a1a;
 
     color: #fff;
 

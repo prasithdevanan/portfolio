@@ -246,10 +246,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js">
     </script>
 
+
+
     <!-- AOS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
 
     <script src="Javascript/services.js" defer></script>
+
+    <script>
+        function initAOS() {
+            if (typeof AOS !== "undefined") {
+
+                console.log("AOS initialized");
+
+                AOS.init({
+                    duration: 1200,
+                    once: true,
+                    offset: 80
+                });
+            }
+        };
+    </script>
     <!-- <<<< -----------------Services Section--------------------------------->
 
 
@@ -266,91 +283,6 @@
     <script src="Javascript/folderOpen.js" defer></script>
 
     <!-- --------------------------------Get in touch----------------------------- -->
-
-    <!-- <section id="get-in-touch">
-        <div class="touch-main">
-            <div class="touch-heading about-heading">
-                <h4>Get in touch</h4>
-            </div>
-
-            <div class="touch-talk-form">
-
-                <div class="touch-talk">
-                    <h1 class="text">Let's Talk</h1>
-                    <p>
-                        I’m always excited to connect and explore new opportunities. Whether you need design support or
-                        just want to chat, feel free to reach out — every great project starts with a conversation!
-                    </p>
-
-                    <div class="touch-info">
-                        <i class="bi bi-envelope-at-fill"></i>
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=prasith4545@gmail.com&su=I am Interest for you work&body=Your%20Name%20?"
-                            target="_blank">prasith4545@gmail.com</a>
-                    </div>
-
-                    <div class="touch-info">
-                        <i class="bi bi-telephone-outbound-fill"></i>
-                        <h4>+91 9698550XXX</h4>
-                    </div>
-
-                    <div class="touch-info">
-                        <i class="bi bi-geo-fill"></i>
-                        <h4>India</h4>
-                    </div>
-                </div>
-                <div class="touch-form">
-                    <form id="form-fill">
-                        <label>Name
-                            <span class="touch-mandatory">*</span>
-                        </label>
-
-                        <input type="text" placeholder="Enter your name" id="name" required>
-
-                        <label>Email id
-                            <span class="touch-mandatory">*</span>
-                        </label>
-
-                        <input type="email" placeholder="Enter Email ID" required id="email-input">
-
-                        <label> Mobile</label>
-                        <input type="tel" placeholder="+91 983456XXXX" maxlength="15" id="number-input" name="mobile">
-
-                        <label>Message</label>
-
-                        <textarea type="text" placeholder="About the work" id="autoExpand"
-                            style="resize:none; min-height: 36px;"></textarea>
-
-
-                        <label>Captcha</label>
-                        <div class="captchaBox">
-                            <div class="captch-field">
-                                <canvas id="canvas" width="200" height="70"></canvas>
-                                <button class="reloadBtn" type="button"><i class="bi bi-arrow-clockwise"></i></button>
-                            </div>
-                            <input type="text" name="" class="inputBox" placeholder="Enter captch" maxlength="10">
-                            <h4>Invaild Captcha</h4>
-                        </div>
-
-
-                        <script src="./Javascript/captcha.js"></script>
-                        <div class="submitButton">
-
-                            <button type="submit" class="submitBtn connect" id="form-submit">Submit now</button>
-                            <div class="sucess-popup" id="sucess-popup">
-                                <h2>
-                                    <i class="bi bi-check2-circle"></i>
-                                    Sucessfully Send
-                                </h2>
-                            </div>
-
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-
-        </div>
-    </section> -->
 
     <section id="get-in-touch"></section>
     <script src="./Javascript/captcha.js"></script>
@@ -473,13 +405,25 @@
     </footer>
 
     <div class="cursor-circle"></div>
-    <!-- <script>
-        window.addEventListener("load", () => {
-            window.scrollTo({ top: 10, behavior: "smooth" });
-        })
-    </script> -->
+    
+    <script>
+
+        /*
+         * AOS
+         */
+        if (typeof AOS !== "undefined") {
+            console.log("AOS ++++++++++++++++++++++");
+            AOS.init({
+                duration: 700,
+                once: true,
+                offset: 80
+            });
+
+        }
+    </script>
 </body>
 <script src="Javascript/javascript.js" defer></script>
 <script src="./Javascript/loadPages.js" defer></script>
+
 
 </html>

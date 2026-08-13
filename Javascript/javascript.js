@@ -127,8 +127,8 @@ function startAnimation(container, logos) {
         positions[i] = position;
 
         directions[i] = {
-            x: (Math.random() - 0.5) * 0.8,
-            y: (Math.random() - 0.5) * 0.8
+            x: (Math.random() - 0.5) * 1.5,
+            y: (Math.random() - 0.5) * 1.5
         };
 
         rotations[i] = Math.random() * 360;
@@ -143,17 +143,32 @@ function startAnimation(container, logos) {
             const w = logo.offsetWidth;
             const h = logo.offsetHeight;
 
+            const maxX = Math.max(0, containerWidth - w);
+            const maxY = Math.max(0, containerHeight - h);
+
+            // Move
             positions[i].x += directions[i].x;
             positions[i].y += directions[i].y;
 
-            if (positions[i].x < 0 || positions[i].x > containerWidth - w) {
-                directions[i].x *= -1;
+            // Keep inside LEFT / RIGHT
+            if (positions[i].x <= 0) {
+                positions[i].x = 0;
+                directions[i].x = Math.abs(directions[i].x);
+            } else if (positions[i].x >= maxX) {
+                positions[i].x = maxX;
+                directions[i].x = -Math.abs(directions[i].x);
             }
 
-            if (positions[i].y < 0 || positions[i].y > containerHeight - h) {
-                directions[i].y *= -1;
+            // Keep inside TOP / BOTTOM
+            if (positions[i].y <= 0) {
+                positions[i].y = 0;
+                directions[i].y = Math.abs(directions[i].y);
+            } else if (positions[i].y >= maxY) {
+                positions[i].y = maxY;
+                directions[i].y = -Math.abs(directions[i].y);
             }
 
+            // Rotation
             rotations[i] += rotationSpeeds[i];
 
             logo.style.transform =
