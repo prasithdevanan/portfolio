@@ -11,7 +11,7 @@ function Loading() {
     const startTime = performance.now();
 
     function updateLoading(currentTime) {
-
+        document.body.style.display = "block";
         const elapsed = currentTime - startTime;
 
         let progress = (elapsed / duration) * 100;
