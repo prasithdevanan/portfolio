@@ -15,115 +15,129 @@
 const navMobile = document.getElementById("nav-mobile");
 const menuIcon = document.querySelector(".menuIcon");
 const navMobileBackdrop = document.getElementById("nav-mobile-backdrop");
-
-navMobile.classList.remove("show")
-
-menuIcon.addEventListener("click", function () {
-    if (window.innerWidth <= 819) {
-        navMobile.classList.toggle("show");
-        document.body.classList.toggle("freeze-scroll");
-        navMobileBackdrop.classList.toggle("backdrop");
-    }
-
-    else {
-        navMobile.classList.remove("show");
-        document.body.classList.remove("freeze-scroll");
-        navMobileBackdrop.classList.remove("backdrop");
-    }
-})
-
-window.addEventListener("resize", function () {
-    if (this.window.innerWidth > 820) {
-        navMobile.classList.remove("show");
-        document.body.classList.remove("freeze-scroll");
-        navMobileBackdrop.classList.remove("backdrop");
-    }
-})
-
-window.addEventListener("click", function (event) {
-    if (!navMobile.contains(event.target) && !menuIcon.contains(event.target) && navMobile.classList.contains("show") &&
-        document.body.classList.contains("freeze-scroll") && navMobileBackdrop.classList.contains("backdrop")) {
-        navMobile.classList.remove("show");
-        document.body.classList.remove("freeze-scroll");
-        navMobileBackdrop.classList.remove("backdrop");
-    }
-})
+const mobileClose = document.querySelector(".mobile-close");
+const mobileLinks = document.querySelectorAll("#nav-mobile a");
 
 
-function Myfunction() {
-    navMobile.classList.remove("show");
-    document.body.classList.remove("freeze-scroll");
-    navMobileBackdrop.classList.remove("backdrop");
+/* =========================================
+   OPEN / CLOSE MOBILE MENU
+========================================= */
+
+function openMobileMenu() {
+
+    navMobile.classList.add("show");
+    navMobileBackdrop.classList.add("backdrop");
+
+    document.body.classList.add("freeze-scroll");
+
+    menuIcon.setAttribute("aria-expanded", "true");
+    menuIcon.setAttribute("aria-label", "Close navigation");
 }
 
-/*-----------------Carosal  --------------*/
-var servicesMobile = document.getElementById("services-mobile").style.display = "none !important";
+
+function closeMobileMenu() {
+
+    navMobile.classList.remove("show");
+    navMobileBackdrop.classList.remove("backdrop");
+
+    document.body.classList.remove("freeze-scroll");
+
+    menuIcon.setAttribute("aria-expanded", "false");
+    menuIcon.setAttribute("aria-label", "Open navigation");
+}
 
 
-window.addEventListener("resize", function (event) {
+/* =========================================
+   MENU BUTTON
+========================================= */
 
-})
+menuIcon.addEventListener("click", () => {
 
-$('.services-mobile').slick({
-    centerMode: true,
-    centerPadding: '60px',
-    slidesToShow: 3,
-    initialSlide: 1,
-    prevArrow: '<button type="button" class="btn btn-primary slick-prev"><i class="bi bi-caret-left-fill"></i></button>',
-    nextArrow: '<button type="button" class="btn btn-primary slick-next"><i class="bi bi-caret-right-fill"></i></button>',
-    responsive: [
-        {
-            breakpoint: 1080,  // Tablet & below
-            settings: {
-                arrows: true,
-                centerMode: true,
-                centerPadding: '40px',
-                slidesToShow: 2
-            }
-        },
-        {
-            breakpoint: 800,  // Mobile & below
-            settings: {
-                arrows: true,
-                centerMode: true,
-                centerPadding: '30px',
-                slidesToShow: 2
-            }
-        },
+    if (window.innerWidth <= 820) {
 
-        {
-            breakpoint: 700,  // Mobile & below
-            settings: {
-                arrows: false,
-                centerMode: true,
-                centerPadding: '18px',
-                slidesToShow: 1,
-                autoplay: true,              // Enable autoplay
-                autoplaySpeed: 3000,         // 3 seconds between slides
-                speed: 600,                  // Optional: transition speed
-                pauseOnHover: false,         // Optional: keep autoplaying on hover
-                pauseOnFocus: false          // Optional: keep autoplaying on focus
-            }
-
+        if (navMobile.classList.contains("show")) {
+            closeMobileMenu();
+        } else {
+            openMobileMenu();
         }
-    ]
+
+    }
+
 });
 
-AOS.init();
 
-// ------------------------photoshopLogo Animation----------------------//
+/* =========================================
+   CLOSE BUTTON
+========================================= */
+
+mobileClose.addEventListener("click", () => {
+    closeMobileMenu();
+});
 
 
-window.addEventListener("load", () => {
-    const container = document.getElementById("logo-container");
-    const logos = Array.from(container.querySelectorAll(".back-logo"));
+/* =========================================
+   BACKDROP CLICK
+========================================= */
 
+navMobileBackdrop.addEventListener("click", (event) => {
+
+    // Only close when clicking the backdrop itself
+    if (event.target === navMobileBackdrop) {
+        closeMobileMenu();
+    }
+
+});
+
+
+/* =========================================
+   MOBILE NAVIGATION LINKS
+========================================= */
+
+mobileLinks.forEach((link) => {
+
+    link.addEventListener("click", () => {
+        closeMobileMenu();
+    });
+
+});
+
+
+/* =========================================
+   WINDOW RESIZE
+========================================= */
+
+window.addEventListener("resize", () => {
+
+    if (window.innerWidth > 820) {
+        closeMobileMenu();
+    }
+
+});
+
+// ------------------------Background Animation ----------------------//
+
+
+function initHeroTools() {
+    const container = document.getElementById("hero-tools");
+    if (!container) return;
+
+    const logos = Array.from(container.querySelectorAll(".tool"));
+
+    // Wait for all images to load
+    Promise.all(
+        logos.map(img => {
+            if (img.complete) return Promise.resolve();
+            return new Promise(resolve => img.onload = resolve);
+        })
+    ).then(() => startAnimation(container, logos));
+}
+
+function startAnimation(container, logos) {
     const directions = [];
     const rotations = [];
     const rotationSpeeds = [];
     const positions = [];
 
-    // Function to check overlap between two boxes
     function isOverlapping(pos1, w1, h1, pos2, w2, h2) {
         return !(
             pos1.x + w1 < pos2.x ||
@@ -133,118 +147,125 @@ window.addEventListener("load", () => {
         );
     }
 
-    // Initialize logo positions and properties
+    const containerWidth = container.clientWidth;
+    const containerHeight = container.clientHeight;
+
     logos.forEach((logo, i) => {
         const logoWidth = logo.offsetWidth;
         const logoHeight = logo.offsetHeight;
-        const containerWidth = container.clientWidth;
-        const containerHeight = container.clientHeight;
 
         let position;
         let attempts = 0;
 
-        // Avoid overlapping other logos on load
         do {
             position = {
                 x: Math.random() * (containerWidth - logoWidth),
                 y: Math.random() * (containerHeight - logoHeight)
             };
 
-            let hasOverlap = false;
+            let overlap = false;
+
             for (let j = 0; j < i; j++) {
-                if (isOverlapping(position, logoWidth, logoHeight, positions[j], logos[j].offsetWidth, logos[j].offsetHeight)) {
-                    hasOverlap = true;
+                if (isOverlapping(
+                    position, logoWidth, logoHeight,
+                    positions[j],
+                    logos[j].offsetWidth,
+                    logos[j].offsetHeight
+                )) {
+                    overlap = true;
                     break;
                 }
             }
 
-            if (!hasOverlap) break;
+            if (!overlap) break;
             attempts++;
-        } while (attempts < 100); // fail-safe to prevent infinite loop
+        } while (attempts < 100);
 
         positions[i] = position;
 
         directions[i] = {
-            x: (Math.random() - 0.6) * 1.4, // range: -1 to 1
-            y: (Math.random() - 0.6) * 1.4
+            x: (Math.random() - 0.5) * 1.5,
+            y: (Math.random() - 0.5) * 1.5
         };
 
         rotations[i] = Math.random() * 360;
-        rotationSpeeds[i] = (Math.random() - 0.5) * 1;
+        rotationSpeeds[i] = (Math.random() - 0.5) * 0.8;
 
-        // Initial position
-        logo.style.transform = `translate3d(${position.x}px, ${position.y}px, 0) rotate(${rotations[i]}deg)`;
+        logo.style.transform =
+            `translate3d(${position.x}px, ${position.y}px, 0) rotate(${rotations[i]}deg)`;
     });
 
-    // Animation loop
     function animate() {
-        const containerWidth = container.clientWidth;
-        const containerHeight = container.clientHeight;
-
         logos.forEach((logo, i) => {
-            const logoWidth = logo.offsetWidth;
-            const logoHeight = logo.offsetHeight;
+            const w = logo.offsetWidth;
+            const h = logo.offsetHeight;
 
-            // Update position
+            const maxX = Math.max(0, containerWidth - w);
+            const maxY = Math.max(0, containerHeight - h);
+
+            // Move
             positions[i].x += directions[i].x;
             positions[i].y += directions[i].y;
 
-            // Bounce off walls
-            if (positions[i].x < 0 || positions[i].x > containerWidth - logoWidth) {
-                directions[i].x *= -1;
-                positions[i].x = Math.max(0, Math.min(containerWidth - logoWidth, positions[i].x));
+            // Keep inside LEFT / RIGHT
+            if (positions[i].x <= 0) {
+                positions[i].x = 0;
+                directions[i].x = Math.abs(directions[i].x);
+            } else if (positions[i].x >= maxX) {
+                positions[i].x = maxX;
+                directions[i].x = -Math.abs(directions[i].x);
             }
 
-            if (positions[i].y < 0 || positions[i].y > containerHeight - logoHeight) {
-                directions[i].y *= -1;
-                positions[i].y = Math.max(0, Math.min(containerHeight - logoHeight, positions[i].y));
+            // Keep inside TOP / BOTTOM
+            if (positions[i].y <= 0) {
+                positions[i].y = 0;
+                directions[i].y = Math.abs(directions[i].y);
+            } else if (positions[i].y >= maxY) {
+                positions[i].y = maxY;
+                directions[i].y = -Math.abs(directions[i].y);
             }
 
-            // Update rotation
+            // Rotation
             rotations[i] += rotationSpeeds[i];
 
-            // Apply styles
-            logo.style.transform = `translate3d(${positions[i].x}px, ${positions[i].y}px, 0) rotate(${rotations[i]}deg)`;
+            logo.style.transform =
+                `translate3d(${positions[i].x}px, ${positions[i].y}px, 0) rotate(${rotations[i]}deg)`;
         });
 
-        requestAnimationFrame(animate);
-    }
-
-    function reloadscreen() {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        requestAnimationFrame(() => {
+            requestAnimationFrame(animate);
+        });
     }
 
     animate();
-    reloadscreen();
-});
+}
 
 
 
 
 
-const emailInput = document.getElementById("email-input");
 
-emailInput.addEventListener("input", function () {
-    emailInput.value = emailInput.value.toLowerCase();
-});
+// const emailInput = document.getElementById("email-input");
 
-
-const areaText = document.getElementById("autoExpand");
+// emailInput.addEventListener("input", function () {
+//     emailInput.value = emailInput.value.toLowerCase();
+// });
 
 
-areaText.addEventListener("input", function () {
-    this.style.height = "auto";
-    this.style.height = (this.scrollHeight) + "px";
-    this.style.resize = "none";
-})
+// const areaText = document.getElementById("autoExpand");
+
+
+// areaText.addEventListener("input", function () {
+//     this.style.height = "auto";
+//     this.style.height = (this.scrollHeight) + "px";
+//     this.style.resize = "none";
+// })
 
 
 
 // -----------------------------------------footer-------------------------------------//
 
 const footer = document.getElementById("footer-message");
-
-
 
 window.addEventListener("resize", () => {
     const windowWidth = window.innerWidth;
@@ -279,18 +300,47 @@ const fixed = document.getElementById("fixedElement");
 
 
 // ---------------------------cursor change--------------//
-
 const cursor = document.querySelector(".cursor-circle");
 
-document.addEventListener('mousemove', (event) => {
-    cursor.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
-});
+if (cursor) {
 
+    let mouseX = 0;
+    let mouseY = 0;
+
+    let cursorX = 0;
+    let cursorY = 0;
+
+
+    document.addEventListener("mousemove", (event) => {
+
+        mouseX = event.clientX;
+        mouseY = event.clientY;
+
+    });
+
+
+    function animateCursor() {
+
+        cursorX += (mouseX - cursorX) * 0.15;
+        cursorY += (mouseY - cursorY) * 0.15;
+
+        cursor.style.transform =
+            `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
+
+        requestAnimationFrame(animateCursor);
+
+    }
+
+
+    animateCursor();
+
+}
 
 
 ///---------------------image loading ---------------------//
-window.addEventListener("load", () => {
-    const container = document.getElementById("logo-container");
+function initImageLoading() {
+    const container = document.getElementById("hero-tools");
+    console.log(container);
     const images = container.querySelectorAll("img");
     let loadedCound = 0;
 
@@ -312,4 +362,114 @@ window.addEventListener("load", () => {
         container.classList.remove("hidden");
         container.classList.add("show");
     }
-});
+};
+
+
+///---------------------custom cursor ---------------------//
+
+function initCustomCursor() {
+
+    // Don't run on touch/mobile devices
+    if (
+        window.matchMedia("(hover: none), (pointer: coarse)").matches
+    ) {
+        return;
+    }
+
+    // Prevent duplicate cursor
+    if (document.querySelector(".custom-cursor")) {
+        return;
+    }
+
+    // Create cursor
+    const cursor = document.createElement("div");
+
+    cursor.className = "custom-cursor";
+
+    cursor.innerHTML = `
+        <i class="bi bi-cursor"></i>
+    `;
+
+    document.body.appendChild(cursor);
+
+
+    // =========================================
+    // MOVE CURSOR
+    // =========================================
+
+    document.addEventListener("mousemove", function (e) {
+
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+
+        cursor.classList.remove("hidden");
+
+    });
+
+
+    // =========================================
+    // HIDE WHEN LEAVING WINDOW
+    // =========================================
+
+    document.addEventListener("mouseleave", function () {
+
+        cursor.classList.add("hidden");
+
+    });
+
+
+    document.addEventListener("mouseenter", function () {
+
+        cursor.classList.remove("hidden");
+
+    });
+
+
+    // =========================================
+    // INTERACTIVE ELEMENTS
+    // =========================================
+
+    const interactiveElements = document.querySelectorAll(
+        "a, button, input, textarea, select, .filter-btn, .work-arrow"
+    );
+
+
+    interactiveElements.forEach(function (element) {
+
+        element.addEventListener("mouseenter", function () {
+
+            cursor.classList.add("active");
+
+        });
+
+
+        element.addEventListener("mouseleave", function () {
+
+            cursor.classList.remove("active");
+
+        });
+
+    });
+
+}
+
+
+///---------------hide the linkedin profile-----------------
+const linkedinProfile = document.querySelector(".hero-social");
+
+window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
+
+    const isAtBottom = scrollTop + windowHeight >= docHeight - 10;
+
+    if (isAtBottom) {
+        linkedinProfile.style.display = "none";
+    } else {
+        linkedinProfile.style.display = "flex";
+    }
+})
+
+
+

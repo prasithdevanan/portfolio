@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css?family=Quattrocento+Sans');
+
+
+/* =========================================================
+   LOADING SCREEN
+========================================================= */
+
+.loading {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #000;
+
+    z-index: 99999;
+
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+        opacity .7s ease,
+        visibility .7s ease;
+}
+
+
+/* =========================================================
+   LOADING CONTENT
+========================================================= */
+
+.loading-content {
+    width: min(420px, 80%);
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 30px;
+}
+
+
+/* =========================================================
+   LOADING TEXT
+========================================================= */
+
+.loading-text {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+.loading-text-words {
+    display: inline-block;
+
+    margin: 0 5px;
+
+    color: #fff;
+
+    font-family:
+        'Quattrocento Sans',
+        sans-serif;
+
+    font-size: 20px;
+    font-weight: 400;
+
+    filter: blur(0);
+
+    animation:
+        blur-text 1.5s infinite alternate;
+}
+
+
+/* =========================================================
+   LETTER DELAYS
+========================================================= */
+
+.loading-text-words:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.loading-text-words:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.loading-text-words:nth-child(3) {
+    animation-delay: .4s;
+}
+
+.loading-text-words:nth-child(4) {
+    animation-delay: .6s;
+}
+
+.loading-text-words:nth-child(5) {
+    animation-delay: .8s;
+}
+
+.loading-text-words:nth-child(6) {
+    animation-delay: 1s;
+}
+
+.loading-text-words:nth-child(7) {
+    animation-delay: 1.2s;
+}
+
+
+/* =========================================================
+   BLUR ANIMATION
+========================================================= */
+
+@keyframes blur-text {
+
+    0% {
+        filter: blur(0);
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        filter: blur(4px);
+        opacity: .5;
+        transform: translateY(-2px);
+    }
+
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.loading-progress {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+/* Progress line */
+
+.loading-progress-bar {
+    position: relative;
+
+    flex: 1;
+
+    height: 1px;
+
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, .18);
+}
+
+
+/* Progress fill */
+
+.loading-progress-bar span {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 0%;
+    height: 100%;
+
+    background: #fff;
+
+    transition: width .05s linear;
+}
+
+
+/* Percentage */
+
+.loading-percentage {
+    min-width: 38px;
+
+    color: #888;
+
+    font-family:
+        'Quattrocento Sans',
+        sans-serif;
+
+    font-size: 11px;
+
+    text-align: right;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   LOADED STATE
+========================================================= */
+
+.loading.loaded {
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media screen and (max-width: 600px) {
+
+    .loading-content {
+        width: 82%;
+    }
+
+    .loading-text-words {
+        margin: 0 3px;
+
+        font-size: 16px;
+    }
+
+    .loading-progress {
+        gap: 10px;
+    }
+
+    .loading-percentage {
+        font-size: 10px;
+    }
+
+}

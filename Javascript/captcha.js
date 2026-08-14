@@ -1,107 +1,283 @@
 
-window.addEventListener("DOMContentLoaded", () => {
+function initCaptcha() {
+
     const canvas = document.getElementById("canvas");
-    const reloadBtn = document.querySelector(".reloadBtn");
-    const inputBox = document.querySelector(".inputBox");
+    const reloadBtn = document.querySelector(".captcha-reload");
+    const inputBox = document.getElementById("captcha-input");
     const submitBtn = document.getElementById("form-submit");
     const form = document.getElementById("form-fill");
+
     let text = "";
-    const captchaBox = document.querySelector(".captchaBox");
 
-
-
-    const Error = () => {
-        captchaBox.children[1].classList.add("error");
-        captchaBox.children[2].style.color = "red";
-        captchaBox.children[2].textContent = "Invaild Captcha";
+    if (!canvas || !reloadBtn || !inputBox || !submitBtn || !form) {
+        return;
     }
 
-    const ErrorMgs = () => {
-        captchaBox.children[1].classList.add("error");
-        captchaBox.children[2].style.color = "red";
-        captchaBox.children[2].textContent = "Enter Captcha";
-    }
+
+    /* =====================================================
+       CAPTCHA INPUT
+    ===================================================== */
 
     inputBox.addEventListener("input", () => {
-        captchaBox.children[1].classList.remove("error");
-        captchaBox.children[2].style.color = "transparent";
-    })
 
-    // Error();
+        inputBox.classList.remove("invalid");
 
+    });
 
 
+    /* =====================================================
+       RANDOM NUMBER
+    ===================================================== */
 
-    // random number helper
     const randomNumber = (min, max) =>
-        Math.floor(Math.random() * (max - min + 1) + min);
+        Math.floor(
+            Math.random() * (max - min + 1) + min
+        );
 
-    // generate random captcha string
+
+    /* =====================================================
+       GENERATE CAPTCHA
+    ===================================================== */
+
     const textGenerator = () => {
+
         let generatedText = "";
+
         for (let i = 0; i < 3; i++) {
-            generatedText += String.fromCharCode(randomNumber(65, 90));  // A–Z
-            generatedText += String.fromCharCode(randomNumber(97, 122)); // a–z
-            generatedText += String.fromCharCode(randomNumber(48, 57));  // 0–9
+
+            generatedText += String.fromCharCode(
+                randomNumber(65, 90)
+            );
+
+            generatedText += String.fromCharCode(
+                randomNumber(97, 122)
+            );
+
+            generatedText += String.fromCharCode(
+                randomNumber(48, 57)
+            );
         }
+
         return generatedText;
     };
 
 
+    /* =====================================================
+       DRAW CAPTCHA
+    ===================================================== */
 
-    // draw captcha on canvas
     function drawStringOnCanvas(string) {
-        let ctx = canvas.getContext("2d");
-        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-        ctx.font = "20px Roboto Mono";
 
-        const textColors = ["rgba(255, 255, 255, 1)", "rgba(255, 255, 255, 1)"];
-        ctx.fillStyle = textColors[randomNumber(0, 1)];
+        const ctx = canvas.getContext("2d");
+
+        ctx.clearRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+        ctx.font = "20px 'Roboto Mono', monospace";
+
+        ctx.fillStyle = "#fff";
 
         const xInitialSpace = 20;
         const letterSpace = 150 / string.length;
 
         for (let i = 0; i < string.length; i++) {
-            ctx.fillText(string[i], xInitialSpace + i * letterSpace, randomNumber(25, 40), 100);
+
+            ctx.fillText(
+                string[i],
+                xInitialSpace + i * letterSpace,
+                randomNumber(25, 40),
+                100
+            );
+
         }
     }
 
-    // reset and generate new captcha
+
+    /* =====================================================
+       RESET CAPTCHA
+    ===================================================== */
+
     function triggerFunction() {
+
         inputBox.value = "";
+
+        inputBox.classList.remove("invalid");
+
         text = textGenerator();
+
         drawStringOnCanvas(text);
     }
 
-    // reload button
-    reloadBtn.addEventListener("click", triggerFunction);
 
-    // generate captcha on page load
+    /* =====================================================
+       RELOAD CAPTCHA
+    ===================================================== */
+
+    reloadBtn.addEventListener(
+        "click",
+        triggerFunction
+    );
+
+
+    /* =====================================================
+       INITIAL CAPTCHA
+    ===================================================== */
+
     triggerFunction();
 
-    // submit button
+
+    /* =====================================================
+       SUBMIT
+    ===================================================== */
+
     submitBtn.addEventListener("click", function (event) {
+
         event.preventDefault();
 
+
+        /* ---------------------------------------------
+           HTML VALIDATION
+        --------------------------------------------- */
+
         if (!form.checkValidity()) {
+
             form.reportValidity();
-            return;
-        }
-        if (inputBox.value == "") {
-            ErrorMgs();
+
             return;
         }
 
-        if (inputBox.value.trim() === text) {
-            emailSend();
-            // alert("sucessfully send")
-            form.reset();
-            triggerFunction();
-        } else {
-            // alert("❌ Invalid captcha. Please try again.");
-            Error();
-            // triggerFunction();
+
+        /* ---------------------------------------------
+           EMPTY CAPTCHA
+        --------------------------------------------- */
+
+        if (inputBox.value.trim() === "") {
+
+            inputBox.classList.add("invalid");
+
+            showNotification(
+                "error",
+                "Please enter the CAPTCHA."
+            );
+
+            inputBox.focus();
+
+            return;
         }
+
+
+        /* ---------------------------------------------
+           INVALID CAPTCHA
+        --------------------------------------------- */
+
+        if (inputBox.value.trim() !== text) {
+
+            inputBox.classList.add("invalid");
+
+            showNotification(
+                "error",
+                "Invalid CAPTCHA. Please try again."
+            );
+
+            inputBox.focus();
+
+            return;
+        }
+
+
+        /* ---------------------------------------------
+           CAPTCHA CORRECT
+        --------------------------------------------- */
+
+        inputBox.classList.remove("invalid");
+
+        emailSend();
+
     });
-});
 
+}
+
+
+/* =========================================================
+   NOTIFICATION
+========================================================= */
+
+function showNotification(type, message) {
+
+    const notification = document.getElementById("emailNotification");
+
+    if (!notification) return;
+
+    const icon = notification.querySelector("i");
+    const text = notification.querySelector("span");
+
+
+    /* Remove previous state */
+    notification.classList.remove(
+        "success",
+        "error",
+        "show"
+    );
+
+
+    /* Set message */
+    text.textContent = message;
+
+
+    /* Set type + icon */
+    if (type === "success") {
+
+        notification.classList.add("success");
+
+        icon.className = "bi bi-check";
+
+    } else {
+
+        notification.classList.add("error");
+
+        icon.className = "bi bi-x";
+
+    }
+
+
+    /* Show */
+    requestAnimationFrame(() => {
+        notification.classList.add("show");
+    });
+
+
+    /* Hide automatically */
+    clearTimeout(notification.notificationTimer);
+
+    notification.notificationTimer = setTimeout(() => {
+
+        notification.classList.remove("show");
+
+    }, 4000);
+}
+
+
+function Error() {
+
+    inputBox.classList.add("invalid");
+
+    showNotification(
+        "error",
+        "Invalid CAPTCHA. Please try again."
+    );
+}
+
+
+function ErrorMgs() {
+
+    inputBox.classList.add("invalid");
+
+    showNotification(
+        "error",
+        "Please enter the CAPTCHA."
+    );
+}

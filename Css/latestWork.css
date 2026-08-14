@@ -1,0 +1,1095 @@
+/* =========================================================
+   LATEST WORK
+========================================================= */
+
+.latest-work {
+    width: 100%;
+    max-width: 1500px;
+
+    margin: 80px auto 20px;
+
+    padding: 0 30px;
+
+    box-sizing: border-box;
+
+    color: #fff;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.latest-work-container {
+    width: 100%;
+    max-width: 1500px;
+
+    margin: 0 auto;
+
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.latest-work-header {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-end;
+
+    gap: 60px;
+
+    margin-bottom: 55px;
+}
+
+.latest-work-header>div {
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+/* =========================================================
+   SECTION LABEL
+========================================================= */
+
+.section-label {
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    color: #777;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    line-height: 1;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.latest-work-header h2 {
+    margin: 0;
+
+    color: #f5f5f5;
+
+    font-size: clamp(42px, 5vw, 64px);
+
+    font-weight: 600;
+
+    line-height: 0.95;
+
+    letter-spacing: -0.055em;
+}
+
+.latest-work-header h2 span {
+    color: #666;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.latest-work-description {
+    width: 100%;
+    max-width: 400px;
+
+    margin: 0;
+
+    color: #777;
+
+    font-size: 15px;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   FILTER
+========================================================= */
+
+.work-filter {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   FILTER BUTTON
+========================================================= */
+
+.filter-btn {
+    padding: 10px 18px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #292929;
+
+    border-radius: 100px;
+
+    background: transparent;
+
+    color: #777;
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    line-height: 1;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    border-color: #fff;
+
+    background: #fff;
+
+    color: #111;
+}
+
+
+/* =========================================================
+   WORK GRID
+========================================================= */
+
+.current-work-wrapper {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 28px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   WORK CARD
+========================================================= */
+
+.current-work-main {
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    padding: 14px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #242424;
+
+    border-radius: 28px;
+
+    background: #111;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.5s cubic-bezier(.2, .8, .2, 1),
+        border-color 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+.current-work-main:hover {
+    transform: translateY(-8px);
+
+    border-color: #333;
+
+    box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.5);
+}
+
+
+/* =========================================================
+   CARD TOP
+========================================================= */
+
+.work-top {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 8px 8px 14px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   WORK NUMBER
+========================================================= */
+
+.work-number {
+    color: #555;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    line-height: 1;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   WORK CATEGORY
+========================================================= */
+
+.work-category {
+    padding: 6px 12px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #292929;
+
+    border-radius: 100px;
+
+    background: #181818;
+
+    color: #777;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    line-height: 1;
+
+    letter-spacing: 0.7px;
+
+    text-transform: uppercase;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   IMAGE WRAPPER
+========================================================= */
+
+.work-image-wrapper {
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    aspect-ratio: 16 / 10;
+
+    border-radius: 20px;
+
+    background: #080808;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.current-work {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.8s cubic-bezier(.2, .8, .2, 1),
+        filter 0.6s ease;
+}
+
+.current-work-main:hover .current-work {
+    transform: scale(1.07);
+
+    filter:
+        brightness(0.55) saturate(0.85);
+}
+
+
+/* =========================================================
+   IMAGE OVERLAY
+========================================================= */
+
+.work-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(135deg,
+            rgba(0, 0, 0, 0.15),
+            transparent 50%,
+            rgba(0, 0, 0, 0.55));
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.5s ease;
+}
+
+.current-work-main:hover .work-overlay {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   FLOATING VIEW BUTTON
+========================================================= */
+
+.current-work-btn {
+    position: absolute;
+
+    z-index: 5;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 15px 20px;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: 100px;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    color: #fff;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    line-height: 1;
+
+    pointer-events: none;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        translate(-50%, -50%) scale(0.85);
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.25s ease;
+}
+
+.current-work-btn.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translate(-50%, -50%) scale(1);
+}
+
+
+/* =========================================================
+   VIEW BUTTON ICON
+========================================================= */
+
+.current-work-btn span {
+    width: 22px;
+    height: 22px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    color: #111;
+
+    font-size: 11px;
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   WORK CONTENT
+========================================================= */
+
+.work-content {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-end;
+
+    gap: 20px;
+
+    padding: 20px 8px 8px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   WORK NAME
+========================================================= */
+
+.current-work-name {
+    margin: 0 0 7px;
+
+    color: #f5f5f5;
+
+    font-size: 23px;
+    font-weight: 600;
+
+    line-height: 1.2;
+
+    letter-spacing: -0.5px;
+}
+
+
+/* =========================================================
+   WORK DESCRIPTION
+========================================================= */
+
+.work-description {
+    width: 100%;
+    max-width: 400px;
+
+    margin: 0;
+
+    color: #666;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.work-arrow {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    box-sizing: border-box;
+
+    border: 1px solid #292929;
+
+    border-radius: 50%;
+
+    background: #181818;
+
+    color: #aaa;
+
+    font-size: 15px;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.current-work-main:hover .work-arrow {
+    border-color: #fff;
+
+    background: #fff;
+
+    color: #111;
+
+    transform: rotate(45deg);
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .latest-work {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .latest-work-header {
+        gap: 45px;
+    }
+
+    .current-work-wrapper {
+        gap: 24px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .latest-work {
+        margin-top: 70px;
+
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .latest-work-header {
+        gap: 30px;
+
+        margin-bottom: 45px;
+    }
+
+    .latest-work-header h2 {
+        font-size: clamp(40px, 7vw, 58px);
+    }
+
+    .latest-work-description {
+        max-width: 360px;
+
+        font-size: 15px;
+    }
+
+    .current-work-wrapper {
+        gap: 20px;
+    }
+
+    .current-work-main {
+        padding: 12px;
+
+        border-radius: 25px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .latest-work {
+        margin-top: 60px;
+        margin-bottom: 20px;
+
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+
+    /* -----------------------------------------------------
+       HEADER
+    ----------------------------------------------------- */
+
+    .latest-work-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 25px;
+
+        margin-bottom: 35px;
+    }
+
+    .section-label {
+        margin-bottom: 14px;
+
+        font-size: 11px;
+
+        letter-spacing: 1.6px;
+    }
+
+    .latest-work-header h2 {
+        max-width: 100%;
+
+        font-size: clamp(38px, 11vw, 52px);
+
+        line-height: 0.98;
+
+        letter-spacing: -2px;
+    }
+
+    .latest-work-description {
+        max-width: 100%;
+
+        font-size: 14px;
+
+        line-height: 1.7;
+    }
+
+
+    /* -----------------------------------------------------
+       FILTER
+    ----------------------------------------------------- */
+
+    .work-filter {
+        width: 100%;
+
+        margin-bottom: 25px;
+
+        padding-bottom: 5px;
+
+        overflow-x: auto;
+
+        flex-wrap: nowrap;
+
+        scrollbar-width: none;
+
+        -ms-overflow-style: none;
+    }
+
+    .work-filter::-webkit-scrollbar {
+        display: none;
+    }
+
+    .filter-btn {
+        flex-shrink: 0;
+
+        padding: 9px 16px;
+
+        font-size: 12px;
+    }
+
+
+    /* -----------------------------------------------------
+       WORK GRID
+    ----------------------------------------------------- */
+
+    .current-work-wrapper {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+
+    /* -----------------------------------------------------
+       CARD
+    ----------------------------------------------------- */
+
+    .current-work-main {
+        padding: 12px;
+
+        border-radius: 23px;
+    }
+
+
+    /* -----------------------------------------------------
+       TOP
+    ----------------------------------------------------- */
+
+    .work-top {
+        padding:
+            7px 7px 12px;
+    }
+
+    .work-number {
+        font-size: 11px;
+    }
+
+    .work-category {
+        padding: 6px 10px;
+
+        font-size: 10px;
+    }
+
+
+    /* -----------------------------------------------------
+       IMAGE
+    ----------------------------------------------------- */
+
+    .work-image-wrapper {
+        border-radius: 17px;
+    }
+
+
+    /* -----------------------------------------------------
+       CONTENT
+    ----------------------------------------------------- */
+
+    .work-content {
+        padding:
+            18px 7px 7px;
+
+        gap: 15px;
+    }
+
+    .current-work-name {
+        margin-bottom: 6px;
+
+        font-size: 21px;
+
+        letter-spacing: -0.5px;
+    }
+
+    .work-description {
+        font-size: 13px;
+
+        line-height: 1.6;
+    }
+
+
+    /* -----------------------------------------------------
+       ARROW
+    ----------------------------------------------------- */
+
+    .work-arrow {
+        width: 40px;
+        height: 40px;
+
+        font-size: 14px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .latest-work {
+        margin-top: 55px;
+
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .latest-work-header {
+        margin-bottom: 30px;
+    }
+
+    .latest-work-header h2 {
+        font-size: 40px;
+
+        line-height: 1;
+
+        letter-spacing: -1.8px;
+    }
+
+    .latest-work-description {
+        font-size: 14px;
+    }
+
+    .work-filter {
+        margin-bottom: 22px;
+    }
+
+    .current-work-wrapper {
+        gap: 18px;
+    }
+
+    .current-work-main {
+        padding: 10px;
+
+        border-radius: 22px;
+    }
+
+    .work-top {
+        padding:
+            7px 6px 11px;
+    }
+
+    .work-image-wrapper {
+        border-radius: 16px;
+    }
+
+    .work-content {
+        padding:
+            17px 6px 6px;
+
+        gap: 12px;
+    }
+
+    .current-work-name {
+        font-size: 20px;
+    }
+
+    .work-description {
+        font-size: 12px;
+
+        line-height: 1.6;
+    }
+
+    .work-arrow {
+        width: 38px;
+        height: 38px;
+
+        font-size: 13px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .latest-work {
+        margin-top: 50px;
+
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .latest-work-header {
+        margin-bottom: 28px;
+    }
+
+    .section-label {
+        font-size: 10px;
+
+        letter-spacing: 1.5px;
+    }
+
+    .latest-work-header h2 {
+        font-size: 36px;
+
+        letter-spacing: -1.6px;
+    }
+
+    .latest-work-description {
+        font-size: 13px;
+    }
+
+    .current-work-wrapper {
+        gap: 16px;
+    }
+
+    .current-work-main {
+        padding: 9px;
+
+        border-radius: 20px;
+    }
+
+    .work-top {
+        padding:
+            6px 5px 10px;
+    }
+
+    .work-number {
+        font-size: 10px;
+    }
+
+    .work-category {
+        padding: 5px 9px;
+
+        font-size: 9px;
+    }
+
+    .work-image-wrapper {
+        border-radius: 15px;
+    }
+
+    .work-content {
+        padding:
+            15px 5px 5px;
+
+        gap: 10px;
+    }
+
+    .current-work-name {
+        font-size: 18px;
+    }
+
+    .work-description {
+        font-size: 11px;
+    }
+
+    .work-arrow {
+        width: 36px;
+        height: 36px;
+
+        font-size: 12px;
+    }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .latest-work {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .latest-work-header h2 {
+        font-size: 34px;
+
+        letter-spacing: -1.5px;
+    }
+
+    .latest-work-description {
+        font-size: 13px;
+    }
+
+    .current-work-main {
+        padding: 8px;
+
+        border-radius: 19px;
+    }
+
+    .work-image-wrapper {
+        border-radius: 14px;
+    }
+
+    .current-work-name {
+        font-size: 17px;
+    }
+
+    .work-description {
+        font-size: 10px;
+    }
+
+    .work-arrow {
+        width: 34px;
+        height: 34px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE HOVER SAFETY
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .current-work-main:hover {
+        transform: none;
+
+        box-shadow: none;
+    }
+
+    .current-work-main:hover .current-work {
+        transform: none;
+
+        filter: none;
+    }
+
+    .current-work-main:hover .work-overlay {
+        opacity: 0;
+    }
+
+    .current-work-main:hover .work-arrow {
+        transform: none;
+
+        border-color: #292929;
+
+        background: #181818;
+
+        color: #aaa;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.filter-btn:focus-visible,
+.current-work-main:focus-visible {
+    outline: 2px solid #fff;
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   PREVENT HORIZONTAL OVERFLOW
+========================================================= */
+
+/* .latest-work,
+.latest-work-container,
+.current-work-wrapper {
+    max-width: 100%;
+} */
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .current-work-main,
+    .current-work,
+    .work-overlay,
+    .current-work-btn,
+    .filter-btn,
+    .work-arrow {
+        transition: none !important;
+    }
+
+}

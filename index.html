@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio website</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./Css/latestWork.css">
+    <link rel="stylesheet" href="./Css/experiences.css">
+    <link rel="stylesheet" href="./Css/services.css">
+    <link rel="stylesheet" href="./Css/skills.css">
+    <link rel="stylesheet" href="./Css/about.css">
+    <link rel="stylesheet" href="./Css/hero.css">
+    <link rel="stylesheet" href="./Css/getInTouch.css">
+    <link rel="stylesheet" href="./Css/Loading.css">
+
     <!-- <<<< -----------------Fav Icon--------------------------------->
     <link rel="shortcut icon" href="./Img/FavIcon.png" type="image/x-icon">
 
@@ -31,629 +40,359 @@
             });
         })();
     </script>
-    <script src="./Javascript/email.js"></script>
+    <script src="./Javascript/email.js" defer></script>
 
 </head>
 
 
-<body>
+<body class="is-loading">
+
+    <section id="Loading"></section>
 
     <!-- <<<< -----------------NavBar Section--------------------------------->
+    <nav class="navbarHeader" id="navbar">
 
-    <navbar class="navbarHeader" id="navbar">
+        <!-- Availability -->
         <div class="avaliable-status">
-            <div>
-                <div></div>
+
+            <span class="availability-dot">
+                <span></span>
+            </span>
+
+            <div class="availability-text">
+                <strong>Available</strong>
+                <small>Full time / Freelance</small>
             </div>
-            <h2>Avaliable</h2>
-            <h4>Full time/Freelance</h4>
 
         </div>
-        <div class="menuIcon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="19" viewBox="0 0 36 29" fill="none">
-                <rect width="35.9988" height="4" rx="2" fill="white" />
-                <rect x="13.0898" y="12.5" width="22.9083" height="4" rx="2" fill="white" />
-                <rect x="4.91016" y="25" width="31.0899" height="4" rx="2" fill="white" />
-            </svg>
-        </div>
+
+
+        <!-- Desktop navigation -->
         <div class="headerMenu">
-            <ul class="navHover">
-                <a href="#heroContent">
-                    <li>Home</li>
-                </a>
-                <a href="#about">
-                    <li>About Me</li>
-                </a>
 
-                <a href="#services">
-                    <li>Services</li>
-                </a>
-                <a href="#latestWork">
-                    <li>Portfolio</li>
-                </a>
+            <ul class="navHover">
+
+                <li>
+                    <a href="#heroContent">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">About Me</a>
+                </li>
+
+                <li>
+                    <a href="#services">Services</a>
+                </li>
+
+                <li>
+                    <a href="#latestWork">Portfolio</a>
+                </li>
+
             </ul>
 
-            <a href="#get-in-touch">
-                <button class="connect">Connect With Me</button>
+
+            <a href="#get-in-touch" class="connect">
+                Connect With Me
+                <span>↗</span>
             </a>
+
         </div>
 
-    </navbar>
+
+        <!-- Mobile menu button -->
+        <button class="menuIcon" type="button" aria-label="Open navigation" aria-controls="nav-mobile"
+            aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </nav>
 
 
+    <!-- Mobile navigation -->
     <div id="nav-mobile-backdrop">
-        <navMobile id="nav-mobile">
 
-            <div class="headerMenu-mobile">
-                <ul class="navHover">
-                    <a href="#heroContent" onclick="Myfunction()">
-                        <li>Home</li>
-                    </a>
-                    <a href="#about" onclick="Myfunction()">
-                        <li>About Me</li>
-                    </a>
+        <nav id="nav-mobile">
 
-                    <a href="#services" onclick="Myfunction()">
-                        <li>Services</li>
-                    </a>
-                    <a href="#latestWork" onclick="Myfunction()">
-                        <li>Portfolio</li>
-                    </a>
-                </ul>
+            <div class="mobile-menu-header">
 
-                <a href="#get-in-touch">
-                    <button class="connect" onclick="Myfunction()">Connect With Me</button>
-                </a>
+                <span>Navigation</span>
 
+                <button type="button" class="mobile-close" aria-label="Close navigation">
+                    ×
+                </button>
 
             </div>
-        </navMobile>
+
+
+            <div class="headerMenu-mobile">
+
+                <ul class="navHover">
+
+                    <li>
+                        <a href="#heroContent">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#about">About Me</a>
+                    </li>
+
+                    <li>
+                        <a href="#services">Services</a>
+                    </li>
+
+                    <li>
+                        <a href="#latestWork">Portfolio</a>
+                    </li>
+
+                </ul>
+
+
+                <a href="#get-in-touch" class="connect mobile-connect">
+                    Connect With Me
+                    <span>↗</span>
+                </a>
+
+            </div>
+
+        </nav>
+
     </div>
 
 
 
     <!-- <<<< -----------------Main Hero Section--------------------------------->
+    <section id="heroContent"></section>
+    <div class="section-divider">
+        <span class="divider-number">01</span>
+        <span class="divider-line"></span>
+        <span class="divider-number">02</span>
+    </div>
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/prasith-devanan-36213a262/" target="_blank" rel="noopener noreferrer"
+        class="hero-social" aria-label="LinkedIn">
+        <img src="Img/linkedin.png" alt="">
+    </a>
 
-    <mainHead>
-        <div class="heroContent gradiant-background" id="heroContent">
-
-            <!-- <<<< -----------------hero background logo--------------------------------->
-            <div id="logo-container" class="hidden">
-                <img src="Img/figmaLogo.png" alt="image" class="back-logo blur">
-                <img src="Img/Photoshop.png" alt="image" class="back-logo blur">
-                <img src="Img/Adobe XD.png" alt="img" class="back-logo blur">
-                <img src="Img/blender.png" alt="img" class="back-logo blur">
-                <img src="Img/css.png" alt="img" class="back-logo blur">
-                <img src="Img/html.png" alt="img" class="back-logo blur">
-                <img src="Img/javascript.png" alt="img" class="back-logo blur">
-                <img src="Img/miro.png" alt="img" class="back-logo blur">
-                <img src="Img/illustrator.png" alt="img" class="back-logo blur">
-            </div>
-
-            <!-- ----------center content------------->
-            <div class="heroContent hero-center-content" data-aos="flip-left" data-aos-duration="600">
-                <img src="Img/profile.png" alt="img" class="hero-profile">
-                <h4>
-                    I'm Prasith Devanan,<br>
-                    <span></span>
-                    <!-- Based in India. -->
-                </h4>
-                <div class="mainBtn">
-                    <a href="#get-in-touch">
-                        <button class="connect">Connect with me</button>
-                    </a>
-                    <a href="Img/Resume.pdf" target="_blank">
-                        <button class="resume">My Resume</button>
-                    </a>
-                </div>
-            </div>
-            <a href="https://www.linkedin.com/in/prasith-devanan-36213a262/" target="_blank">
-                <div class="footer-details" id="fixedElement">
-                    <img src="./Img/linkedin.png" alt="img">
-                </div>
-            </a>
-
-
-            <div class="container">
-                <div class="face">
-                    <img src="./Img/grid.png" alt="img">
-                </div>
-            </div>
-
-        </div>
-    </mainHead>
 
     <!-- <<<< -----------------About Section--------------------------------->
+    <section id="about"></section>
 
+    <div class="section-divider">
+        <span class="divider-number">02</span>
+        <span class="divider-line"></span>
+        <span class="divider-number">03</span>
+    </div>
+    <script src="./Javascript/number.js" defer></script>
 
-    <about id="about">
-        <div class="about-Main-section">
-            <div class="about-heading">
-                <h4>About Me</h4>
-            </div>
-            <div class="about-section" data-aos="fade-right" data-aos-duration="500" data-aos-delay="100">
-                <div class="about-img-p">
-                    <div class="about-img">
-                        <img src="Img/aboutMe.png" alt="image">
-                    </div>
-                    <div class="about-para">
-                        <p>
-                            I’m Prasith Devanan, a UI/UX and Graphic Designer with over 2 years of experience creating
-                            web, mobile, and AR/VR designs. I enjoy turning ideas into easy-to-use digital products
-                            using tools like Figma and Adobe XD. My work focuses on making interfaces simple, visually
-                            appealing, and consistent through strong design systems. With a background in branding and
-                            visual design, I bring a complete approach — from concept to final product.
-                        </p>
-                    </div>
-                </div>
-
-
-                <div class="about-count">
-                    <div>
-                        <h1 id="counter">00+</h1>
-                        <p>Years Of Experience</p>
-                    </div>
-                    <hr>
-                    <div>
-                        <h1 id="projectCount">10+</h1>
-                        <p>Project Completed</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </about>
-    <script src="./Javascript/number.js"></script>
 
     <!-- -----------------------------------My skills---------------------------------- -->
-    <skills>
-        <div class="skill-main">
-            <div class="about-heading">
-                <h4>My Skills</h4>
-            </div>
-            <allskill class="allskill">
-                <div class="scroller-wrapper" data-aos="zoom-out-left" data-aos-duration="400">
+    <section id="skills"></section>
+    <div class="section-divider">
+        <span class="divider-number">03</span>
+        <span class="divider-line"></span>
+        <span class="divider-number">04</span>
+    </div>
 
-                    <div class="skill scroller-slide">
-                        <img src="./Img/figmaLogo.png" alt="img">
-                        <h2>Figma</h2>
-                    </div>
 
-                    <div class="skill scroller-slide">
-                        <img src="./Img/Adobe XD.png" alt="img">
-                        <h2>Adobe XD</h2>
-                    </div>
+    <!-- -------------------------Experiences--------------------------------- -->
+    <section id="experience"></section>
+    <div class="section-divider">
+        <span class="divider-number">04</span>
+        <span class="divider-line"></span>
+        <span class="divider-number">05</span>
+    </div>
 
-                    <div class="skill scroller-slide">
-                        <img src="./Img/html.png" alt="img">
-                        <h2>HTML</h2>
-                    </div>
 
-                    <div class="skill scroller-slide">
-                        <img src="./Img/css.png" alt="img">
-                        <h2>CSS</h2>
-                    </div>
+    <!-- jQuery FIRST -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+        </script>
+    <!-- Slick SECOND -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js">
+    </script>
 
-                    <div class="skill scroller-slide">
-                        <img src="./Img/miro.png" alt="img">
-                        <h2>Miro</h2>
-                    </div>
 
-                    <div class="skill scroller-slide">
-                        <img src="./Img/Photoshop.png" alt="img">
-                        <h2>Photoshop</h2>
-                    </div>
 
-                    <div class="skill scroller-slide">
-                        <img src="./Img/illustrator.png" alt="img">
-                        <h2>Illustrator</h2>
-                    </div>
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script src="Javascript/services.js" defer></script>
+    <script>
+        function initAOS() {
+            if (typeof AOS !== "undefined") {
 
-                    <div class="skill scroller-slide">
-                        <img src="./Img/javascript.png" alt="img">
-                        <h2>Javascript</h2>
-                    </div>
+                console.log("AOS initialized");
 
-                    <div class="skill scroller-slide">
-                        <img src="./Img/blender.png" alt="img">
-                        <h2>Blender</h2>
-                    </div>
-
-                    <div class="skill scroller-slide">
-                        <img src="./Img/spline.png" alt="img">
-                        <h2>Spline</h2>
-                    </div>
-
-                    <!-- ---------------------Repeat Slider-------------------- -->
-
-                    <div class="skill scroller-slide">
-                        <img src="./Img/figmaLogo.png" alt="img">
-                        <h2>Figma</h2>
-                    </div>
-
-                    <div class="skill scroller-slide">
-                        <img src="./Img/Adobe XD.png" alt="img">
-                        <h2>Adobe XD</h2>
-                    </div>
-
-                    <div class="skill scroller-slide">
-                        <img src="./Img/html.png" alt="img">
-                        <h2>HTML</h2>
-                    </div>
-
-                    <div class="skill scroller-slide">
-                        <img src="./Img/css.png" alt="img">
-                        <h2>CSS</h2>
-                    </div>
-
-                    <div class="skill scroller-slide">
-                        <img src="./Img/miro.png" alt="img">
-                        <h2>Miro</h2>
-                    </div>
-
-                    <div class="skill scroller-slide">
-                        <img src="./Img/Photoshop.png" alt="img">
-                        <h2>Photoshop</h2>
-                    </div>
-
-                    <div class="skill scroller-slide">
-                        <img src="./Img/illustrator.png" alt="img">
-                        <h2>Illustrator</h2>
-                    </div>
-
-                    <div class="skill scroller-slide">
-                        <img src="./Img/javascript.png" alt="img">
-                        <h2>Javascript</h2>
-                    </div>
-
-                    <div class="skill scroller-slide">
-                        <img src="./Img/javascript.png" alt="img">
-                        <h2>Javascript</h2>
-                    </div>
-
-                    <div class="skill scroller-slide">
-                        <img src="./Img/javascript.png" alt="img">
-                        <h2>Javascript</h2>
-                    </div>
-
-                </div>
-            </allskill>
-
-        </div>
-    </skills>
+                AOS.init({
+                    duration: 1200,
+                    once: true,
+                    offset: 80
+                });
+            }
+        };
+    </script>
 
 
     <!-- <<<< -----------------Services Section--------------------------------->
+    <section id="services"></section>
 
-
-    <myservices id="services">
-        <div class="services-main">
-            <div class="about-heading">
-                <h4>My Services</h4>
-            </div>
-            <div class="services-row1">
-                <div class="services-types" data-aos="zoom-in" data-aos-duration="500">
-                    <h1>01</h1>
-                    <h1 class="text">UI/UX Design</h1>
-                    <p>I create user-centered designs that combine creativity with functionality. From wireframes to
-                        interactive prototypes, I ensure smooth navigation and engaging experiences that delight users
-                        while meeting business goals.</p>
-
-                    <!-- <h4>Read more</h4> -->
-
-                </div>
-                <div class="services-types" data-aos="zoom-in" data-aos-duration="700">
-                    <h1>02</h1>
-                    <h1 class="text">Web Design</h1>
-                    <p>I design modern, responsive, and visually appealing websites that reflect your brand’s
-                        personality. Every design
-                        is optimized for performance, accessibility, and user engagement across all devices.</p>
-
-                    <!-- <h4>Read more</h4> -->
-                </div>
-                <div class="services-types" data-aos="zoom-in" data-aos-duration="700">
-                    <h1>03</h1>
-                    <h1 class="text">Graphic Design</h1>
-                    <p>From marketing materials to digital creatives, I craft designs that capture attention and
-                        communicate your message effectively. My focus is on strong visuals, consistency, and
-                        storytelling through design.</p>
-
-                    <!-- <h4>Read more</h4> -->
-                </div>
-                <div class="services-types" data-aos="zoom-in" data-aos-duration="700">
-                    <h1>04</h1>
-                    <h1 class="text">Logo Design</h1>
-                    <p>A logo is the face of your brand. I design memorable, versatile, and timeless logos that leave a
-                        lasting impression and align with your brand identity.</p>
-
-                    <!-- <h4>Read more</h4> -->
-                </div>
-                <div class="services-types" data-aos="zoom-in" data-aos-duration="700">
-                    <h1>05</h1>
-                    <h1 class="text">Social Media Design</h1>
-                    <p>I design engaging social media content that boosts visibility and interaction. From templates to
-                        campaign visuals, my designs are tailored for each platform to drive maximum impact.</p>
-
-                    <!-- <h4>Read more</h4> -->
-                </div>
-                <div class="services-types" data-aos="zoom-in" data-aos-duration="700">
-                    <h1>06</h1>
-                    <h1 class="text">Front-End Development</h1>
-                    <p>I build responsive, fast, and interactive websites using modern front-end technologies. My focus
-                        is on clean code, smooth animations, and seamless user experiences across all devices.</p>
-
-                    <!-- <h4>Read more</h4> -->
-                </div>
-            </div>
-
-            <!-- <<<< -----------------Mobile carosal Section--------------------------------->
-            <div class="services-mobile" id="services-mobile">
-                <div class="services-types">
-                    <h1>01</h1>
-                    <h1 class="text">UI/UX Design</h1>
-                    <p>I create user-centered designs that combine creativity with functionality. From wireframes to
-                        interactive prototypes, I ensure smooth navigation and engaging experiences that delight users
-                        while meeting business goals.</p>
-
-                    <!-- <h4>Read more</h4> -->
-                </div>
-                <div class="services-types">
-                    <h1>02</h1>
-                    <h1 class="text">Web Design</h1>
-                    <p>I design modern, responsive, and visually appealing websites that reflect your brand’s
-                        personality. Every design is optimized for performance, accessibility, and user engagement
-                        across all devices.</p>
-
-                    <!-- <h4>Read more</h4> -->
-                </div>
-                <div class="services-types">
-                    <h1>03</h1>
-                    <h1 class="text">Graphic Design</h1>
-                    <p>From marketing materials to digital creatives, I craft designs that capture attention and
-                        communicate your message effectively. My focus is on strong visuals, consistency, and
-                        storytelling through design.</p>
-
-                    <!-- <h4>Read more</h4> -->
-                </div>
-                <div class="services-types">
-                    <h1>04</h1>
-                    <h1 class="text">Logo Design</h1>
-                    <p>A logo is the face of your brand. I design memorable, versatile, and timeless logos that leave a
-                        lasting impression and align with your brand identity.</p>
-
-                    <!-- <h4>Read more</h4> -->
-                </div>
-                <div class="services-types">
-                    <h1>05</h1>
-                    <h1 class="text">Social Media Design</h1>
-                    <p>I design engaging social media content that boosts visibility and interaction. From templates to
-                        campaign visuals, my designs are tailored for each platform to drive maximum impact.</p>
-
-                    <!-- <h4>Read more</h4> -->
-                </div>
-                <div class="services-types">
-                    <h1>06</h1>
-                    <h1 class="text">Front-End Development</h1>
-                    <p>I build responsive, fast, and interactive websites using modern front-end technologies. My focus
-                        is on clean code, smooth animations, and seamless user experiences across all devices.</p>
-
-                    <!-- <h4>Read more</h4> -->
-                </div>
-            </div>
-
-
-            <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-                integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-            <script type="text/javascript"
-                src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-
-
-            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        </div>
-    </myservices>
-
+    <div class="section-divider">
+        <span class="divider-number">05</span>
+        <span class="divider-line"></span>
+        <span class="divider-number">06</span>
+    </div>
 
 
 
     <!-- --------------------------------My Latest work----------------------------- -->
-
-    <work>
-        <div class="work-main" id="latestWork">
-            <div class="about-heading">
-                <h4>My latest work</h4>
-            </div>
-        </div>
+    <section id="LatestWork"></section>
+    <script src="./Javascript/currentWork.js" defer></script>
+    <script src="Javascript/folderOpen.js" defer></script>
 
 
-
-        <!-- ________________________________________folder Open____________________________ -->
-        <div class="work-folder">
-            <div class="top-folder" data-aos="zoom-out" data-aos-duration="500">
-                <div class="main-div folder">
-                    <div class="main-folder"></div>
-
-                    <div class="image">
-                        <a href="https://www.behance.net/gallery/190634923/Dashboard-Portfolio" target="_blank">
-                            <img src="Img/Dashboard.png" alt="image" class="inside-image">
-                        </a>
-
-
-                        <a href="https://www.behance.net/gallery/232316651/Porsche_website" target="_blank">
-                            <img src="Img/thumbnail1.png" alt="image" class="inside-image1">
-                        </a>
-
-                        <a href="https://www.behance.net/gallery/190591613/Second-Hand-Mobile-Website-Portfolio"
-                            target="_blank">
-                            <img src="Img/MobileWay.png" alt="image" class="inside-image2">
-                        </a>
-
-                    </div>
-
-                    <div class="front-rect"></div>
-                </div>
-                <h2>Website Design</h2>
-            </div>
-
-            <div class="top-folder" data-aos="zoom-out" data-aos-duration="500">
-                <div class="main-div folder">
-                    <div class="main-folder"></div>
-
-                    <div class="image">
-                        <a href="https://www.behance.net/gallery/190455945/Visitors-Hotel-booking-application-Ux-case-study"
-                            target="_blank">
-                            <img src="Img/thumbnail.png" alt="image" class="inside-image">
-                        </a>
-                        <a href="https://www.behance.net/gallery/190555481/UI-case-study-for-Hotel-booking-application?tracking_source=search_projects|prasith&l=6"
-                            target="_blank">
-                            <img src="Img/UI_Case_study.png" alt="image" class="inside-image1">
-
-                        </a>
-                        <a href="https://www.behance.net/gallery/192894611/Graphic-design-Portfolio-(Hotel)"
-                            target="_blank">
-                            <img src="Img/GraphicThumbnail.png" alt="image" class="inside-image2">
-                        </a>
-
-                    </div>
-
-                    <div class="front-rect"></div>
-                </div>
-                <h2>Mobile Application</h2>
-            </div>
-
-        </div>
-
-        <script src="Javascript/folderOpen.js"></script>
-
-
-    </work>
 
 
     <!-- --------------------------------Get in touch----------------------------- -->
+    <section id="get-in-touch"></section>
+    <script src="./Javascript/captcha.js"></script>
 
-    <section id="get-in-touch">
-        <div class="touch-main">
-            <div class="touch-heading about-heading">
-                <h4>Get in touch</h4>
-            </div>
-
-            <div class="touch-talk-form">
-
-                <div class="touch-talk">
-                    <h1 class="text">Let's Talk</h1>
-                    <p>
-                        I’m always excited to connect and explore new opportunities. Whether you need design support or
-                        just want to chat, feel free to reach out — every great project starts with a conversation!
-                    </p>
-
-                    <div class="touch-info">
-                        <i class="bi bi-envelope-at-fill"></i>
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=prasith4545@gmail.com&su=I am Interest for you work&body=Your%20Name%20?"
-                            target="_blank">prasith4545@gmail.com</a>
-                        <!-- <a href="#" target="_blank" class="navbar">prasith4545@gmail.com</a> -->
-                    </div>
-
-                    <div class="touch-info">
-                        <i class="bi bi-telephone-outbound-fill"></i>
-                        <h4>+91 9698550XXX</h4>
-                    </div>
-
-                    <div class="touch-info">
-                        <i class="bi bi-geo-fill"></i>
-                        <h4>India</h4>
-                    </div>
-                </div>
-                <div class="touch-form">
-                    <form id="form-fill">
-                        <label>Name
-                            <span class="touch-mandatory">*</span>
-                        </label>
-
-                        <input type="text" placeholder="Enter your name" id="name" required>
-
-                        <label>Email id
-                            <span class="touch-mandatory">*</span>
-                        </label>
-
-                        <input type="email" placeholder="Enter Email ID" required id="email-input">
-
-                        <label> Mobile</label>
-                        <input type="tel" placeholder="+91 983456XXXX" maxlength="15" id="number-input" name="mobile">
-
-                        <label>Message</label>
-
-                        <textarea type="text" placeholder="About the work" id="autoExpand"
-                            style="resize:none; min-height: 36px;"></textarea>
-
-                        <!-- -------------------------------------Captch--------------------- -->
-
-                        <label>Captcha</label>
-                        <div class="captchaBox">
-                            <div class="captch-field">
-                                <canvas id="canvas" width="200" height="70"></canvas>
-                                <button class="reloadBtn" type="button"><i class="bi bi-arrow-clockwise"></i></button>
-                            </div>
-                            <input type="text" name="" class="inputBox" placeholder="Enter captch" maxlength="10">
-                            <h4>Invaild Captcha</h4>
-                        </div>
-
-
-                        <script src="./Javascript/captcha.js"></script>
-                        <!-- -------------------------------------submit Button--------------------- -->
-                        <div class="submitButton">
-
-                            <button type="submit" class="submitBtn connect" id="form-submit">Submit now</button>
-                            <div class="sucess-popup" id="sucess-popup">
-                                <h2>
-                                    <i class="bi bi-check2-circle"></i>
-                                    Sucessfully Send
-                                </h2>
-                            </div>
-
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-
-        </div>
-    </section>
 
     <!-- --------------------------------Bottom----------------------------- -->
+    <footer class="footer-main" id="footer">
+
+        <!-- Ambient background -->
+        <div class="footer-glow footer-glow-1"></div>
+        <div class="footer-glow footer-glow-2"></div>
+
+        <div class="footer-container">
+
+            <!-- CTA -->
+            <div class="footer-cta">
+
+                <div class="footer-label">
+                    <span class="footer-status-dot"></span>
+                    <span>Have a project in mind?</span>
+                </div>
+
+                <h2 id="footer-message">
+                    Let's create
+                    <span>something great.</span>
+                </h2>
+
+                <p class="footer-description">
+                    I'm always open to new projects, creative collaborations,
+                    and interesting ideas.
+                </p>
+
+                <a href="mailto:your-email@example.com" class="footer-contact">
+                    <span>Let's work together</span>
+
+                    <span class="footer-contact-icon">
+                        ↗
+                    </span>
+                </a>
+
+            </div>
 
 
-    <footer class="footer-main">
-        <div class="footer-text">
-            <h1 id="footer-message">Thank you for exploring my work</h1>
-        </div>
+            <!-- Social links -->
+            <div class="footer-social-section">
 
-        <hr>
+                <span class="footer-social-label">
+                    Find me online
+                </span>
 
-        <div class="footer-info">
-            <h5>© 2025 All rights reserved</h5>
-            <div class="footer-img">
-                <div>
-                    <a href="https://dribbble.com/Prasith" target="_blank">
-                        <img src="Img/dribbble.svg" alt="svg">
+                <div class="footer-socials">
+
+                    <a href="https://dribbble.com/Prasith" target="_blank" rel="noopener noreferrer"
+                        class="footer-social-card">
+                        <div class="footer-social-icon">
+                            <img src="Img/dribbble.svg" alt="Dribbble">
+                        </div>
+
+                        <div class="footer-social-content">
+                            <span class="footer-social-name">
+                                Dribbble
+                            </span>
+
+                            <span class="footer-social-subtitle">
+                                Design work
+                            </span>
+                        </div>
+
+                        <span class="footer-social-arrow">
+                            ↗
+                        </span>
                     </a>
-                    <a href="https://www.behance.net/prasithprasith1" target="_blank">
-                        <img src="Img/Behance.svg" alt="svg">
+
+
+                    <a href="https://www.behance.net/prasithprasith1" target="_blank" rel="noopener noreferrer"
+                        class="footer-social-card">
+                        <div class="footer-social-icon">
+                            <img src="Img/Behance.svg" alt="Behance">
+                        </div>
+
+                        <div class="footer-social-content">
+                            <span class="footer-social-name">
+                                Behance
+                            </span>
+
+                            <span class="footer-social-subtitle">
+                                Case studies
+                            </span>
+                        </div>
+
+                        <span class="footer-social-arrow">
+                            ↗
+                        </span>
                     </a>
+
                 </div>
 
             </div>
+
+
+            <!-- Bottom -->
+            <div class="footer-bottom">
+
+                <div class="footer-copyright">
+                    <span>© 2026 Prasith Devanan</span>
+                    <span class="footer-divider"></span>
+                    <span>All rights reserved</span>
+                </div>
+
+
+                <button class="footer-top" id="footerTop" aria-label="Back to top" onclick="window.scrollTo(0, 0)">
+                    <span>Back to top</span>
+                    <span class="footer-top-arrow">↑</span>
+                </button>
+
+            </div>
+
         </div>
+
     </footer>
 
+    <!-- email notification -->
+    <!-- =====================================================
+     EMAIL NOTIFICATION
+===================================================== -->
+
+    <div class="email-notification" id="emailNotification" role="alert" aria-live="polite">
+
+        <i class="bi"></i>
+
+        <span></span>
+
+    </div>
+
+
     <div class="cursor-circle"></div>
-    <script>
-        window.addEventListener("load", () => {
-            window.scrollTo({ top: 10, behavior: "smooth" });
-        })
-    </script>
 </body>
-<script src="Javascript/javascript.js"></script>
-
-
+<script src="Javascript/loading.js" defer></script>
+<script src="Javascript/javascript.js" defer></script>
+<script src="./Javascript/loadPages.js" defer></script>
 
 
 </html>

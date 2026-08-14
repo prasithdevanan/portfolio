@@ -1,0 +1,1123 @@
+/* =========================================================
+   SERVICES SECTION
+========================================================= */
+
+.services-section {
+    width: 100%;
+    max-width: 1500px;
+
+    margin: 80px auto 20px;
+
+    padding: 0 30px;
+
+    box-sizing: border-box;
+}
+
+.services-container {
+    width: 100%;
+
+    margin: 0 auto;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.services-header {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-end;
+
+    gap: 60px;
+
+    margin-bottom: 55px;
+}
+
+.services-header>div {
+    flex: 1;
+    min-width: 0;
+}
+
+.services-label {
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    color: #777;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    line-height: 1;
+
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+}
+
+.services-header h2 {
+    margin: 0;
+
+    color: #fff;
+
+    font-size: clamp(42px, 5vw, 70px);
+
+    font-weight: 600;
+
+    line-height: 0.98;
+
+    letter-spacing: -0.055em;
+}
+
+.services-header h2 span {
+    color: #666;
+}
+
+.services-header>p {
+    width: 100%;
+    max-width: 400px;
+
+    margin: 0;
+
+    color: #888;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   DESKTOP GRID
+========================================================= */
+
+.services-row1 {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+/* =========================================================
+   SERVICE CARD
+========================================================= */
+
+.services-types {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 310px;
+
+    padding: 28px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(145deg,
+            rgba(255, 255, 255, 0.075),
+            rgba(255, 255, 255, 0.025));
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.18);
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        background 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+/* =========================================================
+   CARD GLOW
+========================================================= */
+
+.services-types::before {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    top: -130px;
+    right: -100px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    filter: blur(30px);
+
+    opacity: 0.7;
+
+    pointer-events: none;
+
+    transition:
+        transform 0.5s ease;
+}
+
+
+/* =========================================================
+   DESKTOP HOVER
+========================================================= */
+
+@media (min-width: 801px) {
+
+    .services-row1 .services-types:hover {
+        transform: translateY(-8px);
+
+        border-color:
+            rgba(255, 255, 255, 0.2);
+
+        background:
+            linear-gradient(145deg,
+                rgba(255, 255, 255, 0.11),
+                rgba(255, 255, 255, 0.035));
+
+        box-shadow:
+            0 25px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    .services-row1 .services-types:hover::before {
+        transform: scale(1.5);
+    }
+
+}
+
+
+/* =========================================================
+   CARD TOP
+========================================================= */
+
+.service-top {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+}
+
+.service-number {
+    color: #666;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    line-height: 1;
+
+    letter-spacing: 0.12em;
+}
+
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.service-arrow {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 50%;
+
+    color: #777;
+
+    font-size: 15px;
+
+    transition:
+        color 0.35s ease,
+        background 0.35s ease,
+        border-color 0.35s ease,
+        transform 0.35s ease;
+}
+
+@media (min-width: 801px) {
+
+    .services-row1 .services-types:hover .service-arrow {
+
+        color: #111;
+
+        background: #fff;
+
+        border-color: #fff;
+
+        transform: rotate(45deg);
+    }
+
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.service-content {
+    position: relative;
+
+    z-index: 2;
+
+    padding-top: 45px;
+}
+
+.service-content h3 {
+    margin: 0 0 15px;
+
+    color: #fff;
+
+    font-size: clamp(24px, 2vw, 30px);
+    font-weight: 500;
+
+    line-height: 1.15;
+
+    letter-spacing: -0.035em;
+}
+
+.service-content p {
+    width: 100%;
+    max-width: 430px;
+
+    margin: 0;
+
+    color: #888;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   TAGS
+========================================================= */
+
+.service-tags {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-top: 25px;
+}
+
+.service-tags span {
+    padding: 7px 11px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 100px;
+
+    color: #777;
+
+    background:
+        rgba(255, 255, 255, 0.03);
+
+    font-size: 11px;
+    font-weight: 400;
+
+    line-height: 1;
+
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+@media (min-width: 801px) {
+
+    .services-row1 .services-types:hover .service-tags span {
+
+        color: #ccc;
+
+        border-color:
+            rgba(255, 255, 255, 0.17);
+
+        background:
+            rgba(255, 255, 255, 0.06);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE CAROUSEL
+========================================================= */
+
+.services-mobile {
+    display: none;
+
+    position: relative;
+
+    width: 100%;
+
+    padding-bottom: 65px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   SLICK LIST
+========================================================= */
+
+.services-mobile .slick-list {
+    width: 100%;
+
+    overflow: hidden;
+
+    padding: 15px 0 30px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   SLICK TRACK
+========================================================= */
+
+.services-mobile .slick-track {
+    display: flex;
+
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   SLICK SLIDES
+========================================================= */
+
+.services-mobile .slick-slide {
+    height: auto;
+
+    padding: 0 8px;
+
+    box-sizing: border-box;
+}
+
+.services-mobile .slick-slide>div {
+    height: 100%;
+}
+
+
+/* =========================================================
+   MOBILE CARD
+========================================================= */
+
+.services-mobile .services-types {
+    width: 100%;
+
+    min-height: 370px;
+    height: 100%;
+
+    padding: 26px;
+
+    box-sizing: border-box;
+
+    border-radius: 25px;
+}
+
+
+/* =========================================================
+   MOBILE CENTER CARD
+========================================================= */
+
+.services-mobile .slick-center .services-types {
+    border-color:
+        rgba(255, 255, 255, 0.2);
+
+    background:
+        linear-gradient(145deg,
+            rgba(255, 255, 255, 0.10),
+            rgba(255, 255, 255, 0.035));
+}
+
+
+/* =========================================================
+   MOBILE SLIDE SCALE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .services-mobile .slick-slide {
+        opacity: 0.65;
+
+        transform: scale(0.94);
+
+        transition:
+            opacity 0.4s ease,
+            transform 0.4s ease;
+    }
+
+    .services-mobile .slick-slide.slick-center {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE ARROWS
+========================================================= */
+
+.services-prev,
+.services-next {
+    position: absolute;
+
+    bottom: 5px;
+
+    z-index: 50;
+
+    width: 44px;
+    height: 44px;
+
+    padding: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.13);
+
+    border-radius: 50%;
+
+    background: #151515;
+
+    color: #aaa;
+
+    cursor: pointer;
+
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.services-prev {
+    left: 10px;
+}
+
+.services-next {
+    right: 10px;
+}
+
+.services-prev i,
+.services-next i {
+    display: block;
+
+    font-size: 15px;
+
+    line-height: 1;
+}
+
+.services-prev::before,
+.services-next::before {
+    display: none !important;
+
+    content: none !important;
+}
+
+.services-prev:hover,
+.services-next:hover {
+    color: #111;
+
+    background: #fff;
+
+    border-color: #fff;
+}
+
+
+/* =========================================================
+   DOTS
+========================================================= */
+
+.services-mobile .slick-dots {
+    position: absolute;
+
+    left: 50%;
+    bottom: 20px;
+
+    width: auto;
+    height: 8px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex !important;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    transform: translateX(-50%);
+
+    list-style: none;
+}
+
+.services-mobile .slick-dots li {
+    width: auto;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+}
+
+.services-mobile .slick-dots li button {
+    width: 6px;
+    height: 6px;
+
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+
+    border-radius: 20px;
+
+    background: #444;
+
+    font-size: 0;
+    line-height: 0;
+
+    cursor: pointer;
+
+    transition:
+        width 0.3s ease,
+        background 0.3s ease;
+}
+
+.services-mobile .slick-dots li button::before {
+    display: none !important;
+
+    content: none !important;
+}
+
+.services-mobile .slick-dots li.slick-active button {
+    width: 22px;
+
+    background: #fff;
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 1051px) {
+
+    .services-section {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .services-row1 {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+    .services-mobile {
+        display: none !important;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1050px) and (min-width: 801px) {
+
+    .services-section {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .services-header {
+        gap: 35px;
+    }
+
+    .services-row1 {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 18px;
+    }
+
+    .services-types {
+        min-height: 310px;
+
+        padding: 26px;
+    }
+
+    .services-header h2 {
+        font-size: clamp(42px, 6vw, 60px);
+    }
+
+    .service-content h3 {
+        font-size: 27px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .services-section {
+        margin-top: 70px;
+        margin-bottom: 20px;
+
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .services-container {
+        width: 100%;
+
+        padding: 0;
+    }
+
+
+    /* -----------------------------------------------------
+       HEADER
+    ----------------------------------------------------- */
+
+    .services-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 25px;
+
+        margin-bottom: 35px;
+    }
+
+    .services-header>div {
+        width: 100%;
+    }
+
+    .services-label {
+        margin-bottom: 14px;
+
+        font-size: 11px;
+
+        letter-spacing: 0.14em;
+    }
+
+    .services-header h2 {
+        font-size: clamp(40px, 10vw, 56px);
+
+        line-height: 0.98;
+
+        letter-spacing: -0.05em;
+    }
+
+    .services-header>p {
+        max-width: 100%;
+
+        font-size: 14px;
+
+        line-height: 1.7;
+    }
+
+
+    /* -----------------------------------------------------
+       DESKTOP GRID OFF
+    ----------------------------------------------------- */
+
+    .services-row1 {
+        display: none !important;
+    }
+
+
+    /* -----------------------------------------------------
+       MOBILE CAROUSEL ON
+    ----------------------------------------------------- */
+
+    .services-mobile {
+        display: block !important;
+
+        width: 100%;
+        max-width: 100%;
+
+        overflow: hidden;
+    }
+
+
+    /* -----------------------------------------------------
+       MOBILE SLIDES
+    ----------------------------------------------------- */
+
+    .services-mobile .slick-list {
+        width: 100%;
+
+        padding-top: 12px;
+        padding-bottom: 30px;
+    }
+
+    .services-mobile .slick-slide {
+        padding: 0 7px;
+    }
+
+
+    /* -----------------------------------------------------
+       MOBILE CARD
+    ----------------------------------------------------- */
+
+    .services-mobile .services-types {
+        min-height: 370px;
+
+        height: 100%;
+
+        padding: 26px;
+
+        border-radius: 25px;
+    }
+
+
+    /* -----------------------------------------------------
+       MOBILE CARD CONTENT
+    ----------------------------------------------------- */
+
+    .services-mobile .service-content {
+        padding-top: 40px;
+    }
+
+    .services-mobile .service-content h3 {
+        font-size: 26px;
+
+        line-height: 1.15;
+    }
+
+    .services-mobile .service-content p {
+        font-size: 14px;
+
+        line-height: 1.7;
+    }
+
+    .services-mobile .service-tags {
+        margin-top: 22px;
+    }
+
+
+    /* -----------------------------------------------------
+       TOUCH SAFETY
+    ----------------------------------------------------- */
+
+    .services-mobile,
+    .services-mobile .slick-list,
+    .services-mobile .slick-track {
+
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .services-mobile .services-types {
+        user-select: none;
+
+        -webkit-user-select: none;
+    }
+
+
+    /* -----------------------------------------------------
+       MOBILE HOVER SAFETY
+    ----------------------------------------------------- */
+
+    .services-mobile .services-types:hover {
+        transform: none;
+    }
+
+    .services-mobile .services-types:hover .service-arrow {
+        color: #777;
+
+        background: transparent;
+
+        border-color:
+            rgba(255, 255, 255, 0.12);
+
+        transform: none;
+    }
+
+    .services-mobile .services-types:hover .service-tags span {
+        color: #777;
+
+        border-color:
+            rgba(255, 255, 255, 0.09);
+
+        background:
+            rgba(255, 255, 255, 0.03);
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .services-section {
+        margin-top: 60px;
+
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .services-header {
+        gap: 20px;
+
+        margin-bottom: 30px;
+    }
+
+    .services-header h2 {
+        font-size: 38px;
+
+        line-height: 1;
+
+        letter-spacing: -1.8px;
+    }
+
+    .services-header>p {
+        font-size: 14px;
+
+        line-height: 1.7;
+    }
+
+
+    /* -----------------------------------------------------
+       SLIDES
+    ----------------------------------------------------- */
+
+    .services-mobile .slick-slide {
+        padding: 0 5px;
+    }
+
+    .services-mobile .slick-list {
+        padding-top: 8px;
+
+        padding-bottom: 30px;
+    }
+
+
+    /* -----------------------------------------------------
+       CARD
+    ----------------------------------------------------- */
+
+    .services-mobile .services-types {
+        min-height: 350px;
+
+        padding: 24px;
+
+        border-radius: 22px;
+    }
+
+
+    /* -----------------------------------------------------
+       CONTENT
+    ----------------------------------------------------- */
+
+    .services-mobile .service-content {
+        padding-top: 38px;
+    }
+
+    .services-mobile .service-content h3 {
+        font-size: 24px;
+    }
+
+    .services-mobile .service-content p {
+        font-size: 14px;
+
+        line-height: 1.7;
+    }
+
+    .services-mobile .service-tags {
+        gap: 6px;
+
+        margin-top: 20px;
+    }
+
+    .service-tags span {
+        padding: 7px 10px;
+
+        font-size: 11px;
+    }
+
+
+    /* -----------------------------------------------------
+       HIDE ARROWS
+    ----------------------------------------------------- */
+
+    .services-prev,
+    .services-next {
+        display: none !important;
+    }
+
+
+    /* -----------------------------------------------------
+       DOTS
+    ----------------------------------------------------- */
+
+    .services-mobile .slick-dots {
+        bottom: 18px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .services-section {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .services-header h2 {
+        font-size: 34px;
+
+        letter-spacing: -1.5px;
+    }
+
+    .services-mobile .services-types {
+        min-height: 330px;
+
+        padding: 22px;
+
+        border-radius: 20px;
+    }
+
+    .services-mobile .service-content {
+        padding-top: 34px;
+    }
+
+    .services-mobile .service-content h3 {
+        font-size: 22px;
+    }
+
+    .services-mobile .service-content p {
+        font-size: 13px;
+
+        line-height: 1.7;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP CAROUSEL SAFETY
+========================================================= */
+
+@media (min-width: 801px) {
+
+    .services-mobile {
+        display: none !important;
+    }
+
+}
+
+
+/* =========================================================
+   PREVENT HORIZONTAL OVERFLOW
+========================================================= */
+
+/* .services-section,
+.services-container,
+.services-row1,
+.services-mobile {
+    max-width: 100%;
+} */
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.services-prev:focus-visible,
+.services-next:focus-visible,
+.services-mobile .slick-dots button:focus-visible {
+
+    outline: 2px solid #fff;
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .services-types,
+    .services-types::before,
+    .service-arrow,
+    .service-tags span,
+    .services-mobile .slick-slide,
+    .services-prev,
+    .services-next,
+    .services-mobile .slick-dots button {
+
+        transition: none !important;
+    }
+
+}
