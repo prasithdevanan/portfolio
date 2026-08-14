@@ -5,7 +5,7 @@
 .skills-section {
     width: 100%;
     max-width: 1500px;
-    margin: 20px auto 0;
+    margin: 80px auto 0;
     overflow: hidden;
 }
 
@@ -29,9 +29,9 @@
 ========================================================= */
 
 .skills-heading {
-    padding: 0 30px;
+    width: min(1200px, calc(100% - 40px));
+    margin: 0 30px;
 }
-
 
 /* Small label */
 
@@ -328,11 +328,6 @@
     }
 
 
-    .skills-heading {
-        padding: 0 24px;
-    }
-
-
     .skills-heading h2 {
         font-size: clamp(36px, 6vw, 54px);
     }
@@ -383,16 +378,15 @@
         overflow: hidden;
     }
 
+    .skills-heading {
+        width: calc(100% - 32px);
+        margin: 0 24px;
+    }
+
 
     .skills-container {
         gap: 28px;
     }
-
-
-    .skills-heading {
-        padding: 0 18px;
-    }
-
 
     /* Label */
 
@@ -506,7 +500,8 @@
 
 
     .skills-heading {
-        padding: 0 16px;
+        width: calc(100% - 24px);
+        margin: 0 16px;
     }
 
 
@@ -575,11 +570,6 @@
 ========================================================= */
 
 @media screen and (max-width: 340px) {
-
-    .skills-heading {
-        padding: 0 14px;
-    }
-
 
     .skills-heading h2 {
         font-size: 29px;

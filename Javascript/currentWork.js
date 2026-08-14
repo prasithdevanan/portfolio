@@ -55,8 +55,6 @@ function initCurrentWork() {
 
             button.classList.remove("show");
 
-            workName.style.display = "none";
-
         });
 
 

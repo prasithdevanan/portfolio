@@ -178,12 +178,13 @@
 
     <!-- <<<< -----------------About Section--------------------------------->
     <section id="about"></section>
-    <script src="./Javascript/number.js" defer></script>
+
     <div class="section-divider">
         <span class="divider-number">02</span>
         <span class="divider-line"></span>
         <span class="divider-number">03</span>
     </div>
+    <script src="./Javascript/number.js" defer></script>
 
 
     <!-- -----------------------------------My skills---------------------------------- -->
@@ -236,7 +237,11 @@
     <!-- <<<< -----------------Services Section--------------------------------->
     <section id="services"></section>
 
-
+    <div class="section-divider">
+        <span class="divider-number">05</span>
+        <span class="divider-line"></span>
+        <span class="divider-number">06</span>
+    </div>
 
 
 
@@ -358,7 +363,7 @@
                 </div>
 
 
-                <button class="footer-top" id="footerTop" aria-label="Back to top">
+                <button class="footer-top" id="footerTop" aria-label="Back to top" onclick="window.scrollTo(0, 0)">
                     <span>Back to top</span>
                     <span class="footer-top-arrow">↑</span>
                 </button>
@@ -368,6 +373,20 @@
         </div>
 
     </footer>
+
+    <!-- email notification -->
+    <!-- =====================================================
+     EMAIL NOTIFICATION
+===================================================== -->
+
+    <div class="email-notification" id="emailNotification" role="alert" aria-live="polite">
+
+        <i class="bi"></i>
+
+        <span></span>
+
+    </div>
+
 
     <div class="cursor-circle"></div>
 </body>

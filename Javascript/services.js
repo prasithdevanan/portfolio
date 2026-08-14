@@ -1,22 +1,21 @@
-$(document).ready(function () {
+function initServicesSlider() {
 
     const $services = $(".services-mobile");
 
     function initServicesSlider() {
 
         if (!$services.length) {
+            console.log("No services section found.");
             return;
         }
 
-        /*
-         * Only initialize Slick on mobile.
-         */
+        console.log(window.innerWidth);
+
         if (window.innerWidth <= 800) {
 
             if (!$services.hasClass("slick-initialized")) {
 
                 $services.slick({
-
                     slidesToShow: 1,
                     slidesToScroll: 1,
 
@@ -37,58 +36,41 @@ $(document).ready(function () {
                     pauseOnFocus: false,
 
                     prevArrow:
-                        '<button type="button" class="services-prev">' +
+                        '<button type="button" class="services-prev" aria-label="Previous service">' +
                         '<i class="bi bi-arrow-left"></i>' +
                         '</button>',
 
                     nextArrow:
-                        '<button type="button" class="services-next">' +
+                        '<button type="button" class="services-next" aria-label="Next service">' +
                         '<i class="bi bi-arrow-right"></i>' +
                         '</button>'
-
                 });
 
             }
 
         } else {
 
-            /*
-             * Destroy Slick when returning to desktop.
-             */
             if ($services.hasClass("slick-initialized")) {
-
                 $services.slick("unslick");
-
             }
 
         }
-
     }
 
-
-    /*
-     * Initial load
-     */
+    // Initial load
     initServicesSlider();
 
-
-    /*
-     * Resize
-     */
+    // Resize
     let resizeTimer;
 
     $(window).on("resize", function () {
-
+        console.log("Resizing window...");
         clearTimeout(resizeTimer);
 
         resizeTimer = setTimeout(function () {
-
             initServicesSlider();
-
         }, 150);
 
     });
 
-
-
-});
+}

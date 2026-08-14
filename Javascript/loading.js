@@ -35,6 +35,9 @@ function Loading() {
             setTimeout(() => {
 
                 loading.classList.add("loaded");
+
+                //smooth scroll
+                initSmoothScroll();
                 //aos
                 initAOS();
 

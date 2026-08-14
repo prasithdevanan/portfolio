@@ -364,10 +364,20 @@ function initImageLoading() {
     }
 };
 
+
+///---------------------custom cursor ---------------------//
+
 function initCustomCursor() {
 
-    // Don't run on mobile/touch devices
-    if (window.matchMedia("(hover: none), (pointer: coarse)").matches) {
+    // Don't run on touch/mobile devices
+    if (
+        window.matchMedia("(hover: none), (pointer: coarse)").matches
+    ) {
+        return;
+    }
+
+    // Prevent duplicate cursor
+    if (document.querySelector(".custom-cursor")) {
         return;
     }
 
@@ -383,8 +393,11 @@ function initCustomCursor() {
     document.body.appendChild(cursor);
 
 
-    // Move cursor
-    document.addEventListener("mousemove", (e) => {
+    // =========================================
+    // MOVE CURSOR
+    // =========================================
+
+    document.addEventListener("mousemove", function (e) {
 
         cursor.style.left = `${e.clientX}px`;
         cursor.style.top = `${e.clientY}px`;
@@ -394,35 +407,69 @@ function initCustomCursor() {
     });
 
 
-    // Hide when leaving window
-    document.addEventListener("mouseleave", () => {
+    // =========================================
+    // HIDE WHEN LEAVING WINDOW
+    // =========================================
+
+    document.addEventListener("mouseleave", function () {
+
         cursor.classList.add("hidden");
+
     });
 
 
-    document.addEventListener("mouseenter", () => {
+    document.addEventListener("mouseenter", function () {
+
         cursor.classList.remove("hidden");
+
     });
 
 
-    // Hover elements
+    // =========================================
+    // INTERACTIVE ELEMENTS
+    // =========================================
+
     const interactiveElements = document.querySelectorAll(
-        "a, button, input, textarea, select"
+        "a, button, input, textarea, select, .filter-btn, .work-arrow"
     );
 
 
-    interactiveElements.forEach((element) => {
+    interactiveElements.forEach(function (element) {
 
-        element.addEventListener("mouseenter", () => {
+        element.addEventListener("mouseenter", function () {
+
             cursor.classList.add("active");
+
         });
 
-        element.addEventListener("mouseleave", () => {
+
+        element.addEventListener("mouseleave", function () {
+
             cursor.classList.remove("active");
+
         });
 
     });
 
 }
+
+
+///---------------hide the linkedin profile-----------------
+const linkedinProfile = document.querySelector(".hero-social");
+
+window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
+
+    const isAtBottom = scrollTop + windowHeight >= docHeight - 10;
+
+    if (isAtBottom) {
+        linkedinProfile.style.display = "none";
+    } else {
+        linkedinProfile.style.display = "flex";
+    }
+})
+
 
 

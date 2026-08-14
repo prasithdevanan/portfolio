@@ -51,10 +51,11 @@ async function loadPage() {
     initCaptcha();
 
     // Start cursor
-    initCustomCursor();
+    // initCustomCursor();
 
-    //smooth scroll
-    initSmoothScroll();
+
+    //services slider
+    initServicesSlider();
 
 }
 
