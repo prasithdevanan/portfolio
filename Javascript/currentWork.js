@@ -39,7 +39,7 @@ function initCurrentWork() {
             const rect = container.getBoundingClientRect();
 
             const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+            const y = e.clientY - rect.top - 30;
 
             button.style.left = `${x}px`;
             button.style.top = `${y}px`;
