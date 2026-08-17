@@ -5,7 +5,7 @@
 .about-section {
     width: 100%;
     max-width: 1500px;
-
+    overflow: hidden;
     margin: 80px auto 20px;
 
     padding: 0 30px;
