@@ -576,11 +576,11 @@ ul {
 #nav-mobile {
     position: absolute;
 
-    top: 10px;
+    top: 72px;
     right: 10px;
 
-    width: min(360px, calc(100% - 20px));
-    height: calc(100% - 20px);
+    width: fit-content;
+    height: calc(100% - 82px);
 
     box-sizing: border-box;
 
@@ -616,7 +616,7 @@ ul {
 /* Open state */
 
 #nav-mobile.show {
-    right: 10px;
+    right: 12px;
 
     transform: translateX(0);
 
@@ -712,7 +712,7 @@ ul {
 
     gap: 28px;
 
-    padding: 35px 5px 10px;
+    padding: 5px 5px 10px;
 
     background: transparent;
 
@@ -726,7 +726,7 @@ ul {
 
 .headerMenu-mobile .navHover {
     display: flex;
-
+    align-items: center;
     flex-direction: column;
 
     gap: 5px;
@@ -839,6 +839,13 @@ ul {
 
 }
 
+@media screen and (max-width: 768px) {
+    #nav-mobile {
+        top: 86px;
+        height: calc(100% - 90px);
+    }
+}
+
 
 /* =========================================================
    SMALL MOBILE
@@ -870,11 +877,11 @@ ul {
 
 
     #nav-mobile {
-        top: 7px;
-        right: 7px;
+        top: 86px;
+        right: 12px;
 
-        width: calc(100% - 14px);
-        height: calc(100% - 14px);
+        width: fit-content;
+        height: calc(100% - 90px);
 
         padding: 18px;
 
@@ -925,11 +932,12 @@ ul {
 
     #nav-mobile {
         padding: 15px;
+        top: 82px;
     }
 
 
     .headerMenu-mobile {
-        padding-top: 28px;
+        padding-top: 5px;
     }
 
 
