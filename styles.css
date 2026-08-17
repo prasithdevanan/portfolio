@@ -2036,6 +2036,11 @@ ul {
         line-height: 1.5;
     }
 
+    .footer-top {
+        margin: 10px auto;
+        transform: translateY(-50%);
+    }
+
 }
 
 
@@ -2056,6 +2061,11 @@ ul {
     .footer-contact {
 
         font-size: 13px;
+    }
+
+    .footer-top {
+        margin: 10px auto;
+        transform: translateY(-50%);
     }
 
 }

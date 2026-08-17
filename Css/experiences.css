@@ -457,6 +457,12 @@
         rgba(255, 255, 255, 0.025);
 }
 
+.experience-heading p {
+    color: var(--text-muted);
+    max-width: 580px;
+    line-height: 1.6;
+}
+
 
 /* =========================================================
    LARGE TABLET
