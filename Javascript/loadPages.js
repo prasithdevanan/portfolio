@@ -57,6 +57,8 @@ async function loadPage() {
     //services slider
     initServicesSlider();
 
+    //project filter
+    initProjectFilter();
 }
 
 

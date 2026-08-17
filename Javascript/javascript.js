@@ -15,7 +15,6 @@
 const navMobile = document.getElementById("nav-mobile");
 const menuIcon = document.querySelector(".menuIcon");
 const navMobileBackdrop = document.getElementById("nav-mobile-backdrop");
-const mobileClose = document.querySelector(".mobile-close");
 const mobileLinks = document.querySelectorAll("#nav-mobile a");
 
 
@@ -69,10 +68,6 @@ menuIcon.addEventListener("click", () => {
 /* =========================================
    CLOSE BUTTON
 ========================================= */
-
-mobileClose.addEventListener("click", () => {
-    closeMobileMenu();
-});
 
 
 /* =========================================
@@ -301,39 +296,42 @@ const fixed = document.getElementById("fixedElement");
 
 // ---------------------------cursor change--------------//
 const cursor = document.querySelector(".cursor-circle");
+const width = window.innerWidth;
+console.log("width=======================", width);
+if (width > 820) {
+    if (cursor) {
 
-if (cursor) {
+        let mouseX = 0;
+        let mouseY = 0;
 
-    let mouseX = 0;
-    let mouseY = 0;
-
-    let cursorX = 0;
-    let cursorY = 0;
-
-
-    document.addEventListener("mousemove", (event) => {
-
-        mouseX = event.clientX;
-        mouseY = event.clientY;
-
-    });
+        let cursorX = 0;
+        let cursorY = 0;
 
 
-    function animateCursor() {
+        document.addEventListener("mousemove", (event) => {
 
-        cursorX += (mouseX - cursorX) * 0.15;
-        cursorY += (mouseY - cursorY) * 0.15;
+            mouseX = event.clientX;
+            mouseY = event.clientY;
 
-        cursor.style.transform =
-            `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
+        });
 
-        requestAnimationFrame(animateCursor);
+
+        function animateCursor() {
+
+            cursorX += (mouseX - cursorX) * 0.15;
+            cursorY += (mouseY - cursorY) * 0.15;
+
+            cursor.style.transform =
+                `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
+
+            requestAnimationFrame(animateCursor);
+
+        }
+
+
+        animateCursor();
 
     }
-
-
-    animateCursor();
-
 }
 
 
