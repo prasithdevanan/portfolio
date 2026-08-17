@@ -44,8 +44,7 @@ async function loadPage() {
     // logo animation
     initImageLoading();
 
-    //logo animation
-    initHeroTools();
+
 
     // captcha
     initCaptcha();

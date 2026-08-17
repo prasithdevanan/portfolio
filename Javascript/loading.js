@@ -41,6 +41,9 @@ function Loading() {
                 //aos
                 initAOS();
 
+                //logo animation
+                initHeroTools();
+                
                 document.body.classList.remove("is-loading");
             }, 200);
 
