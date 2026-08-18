@@ -260,44 +260,31 @@ function startAnimation(container, logos) {
 
 // -----------------------------------------footer-------------------------------------//
 
-const footer = document.getElementById("footer-message");
+// const footer = document.getElementById("footer-message");
 
-window.addEventListener("resize", () => {
-    const windowWidth = window.innerWidth;
+// window.addEventListener("resize", () => {
+//     const windowWidth = window.innerWidth;
 
-    const newFontSize = Math.max(windowWidth * 0.08, 20);
+//     const newFontSize = Math.max(windowWidth * 0.08, 20);
 
-    footer.style.fontSize = `${newFontSize}px`
-})
-
-const windowWidth = window.innerWidth;
-const newFontSize = Math.max(windowWidth * 0.08, 20);
-footer.style.fontSize = `${newFontSize}px`
-
-
-const fixed = document.getElementById("fixedElement");
-
-
-// ---------------------------------------top Symbol-------------------------------------------//
-// window.addEventListener("scroll", () => {
-//     const scrollTop = window.scrollY;
-//     const windowHeight = window.innerHeight;
-//     const docHeight = document.documentElement.scrollHeight;
-
-//     if (scrollTop + windowHeight >= 1200) {
-//         fixed.style.display = "none";
-//     }
-//     else {
-//         fixed.style.display = "flex";
-//     }
-
+//     footer.style.fontSize = `${newFontSize}px`
 // })
+
+// const windowWidth = window.innerWidth;
+// const newFontSize = Math.max(windowWidth * 0.08, 20);
+// footer.style.fontSize = `${newFontSize}px`
+
+
+// const fixed = document.getElementById("fixedElement");
+
+
+
 
 
 // ---------------------------cursor change--------------//
 const cursor = document.querySelector(".cursor-circle");
 const width = window.innerWidth;
-console.log("width=======================", width);
+
 if (width > 820) {
     if (cursor) {
 
@@ -338,7 +325,6 @@ if (width > 820) {
 ///---------------------image loading ---------------------//
 function initImageLoading() {
     const container = document.getElementById("hero-tools");
-    console.log(container);
     const images = container.querySelectorAll("img");
     let loadedCound = 0;
 
