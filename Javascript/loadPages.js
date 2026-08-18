@@ -1,7 +1,6 @@
 async function loadSection(id, file) {
     const container = document.getElementById(id);
-    console.log(id);
-    console.log(container);
+
     if (!container) return;
 
     try {
@@ -63,7 +62,7 @@ async function loadPage() {
 
 //smooth scroll
 function initSmoothScroll() {
-    console.log("smooth scroll", window.scrollY);
+
     window.scrollTo({
         top: 0,
         behavior: "smooth"

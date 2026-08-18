@@ -9,7 +9,7 @@ function initServicesSlider() {
             return;
         }
 
-        console.log(window.innerWidth);
+
 
         if (window.innerWidth <= 800) {
 
@@ -64,7 +64,7 @@ function initServicesSlider() {
     let resizeTimer;
 
     $(window).on("resize", function () {
-        console.log("Resizing window...");
+
         clearTimeout(resizeTimer);
 
         resizeTimer = setTimeout(function () {
